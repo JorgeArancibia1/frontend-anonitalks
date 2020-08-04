@@ -1,0 +1,11 @@
+{
+"emmet.includeLanguages": {
+  "javascript": "javascriptreact",
+  "jsx-sublime-babel-tags": "javascriptreact"
+},
+"emmet.triggerExpansionOnTab": true,
+"editor.tabSize": 2,
+"editor.foldingStrategy": "indentation",
+"editor.suggest.showFolders": false,
+"explorer.compactFolders": false,
+}
