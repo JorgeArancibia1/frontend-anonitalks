@@ -5,8 +5,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import { LoginScreen } from '../auth/LoginScreen';
-import { HomeScreen } from '../anonitalks/HomeScreen';
+import { LoginScreen } from '../screens/LoginScreen';
+import { HomeScreen } from '../screens/HomeScreen';
 
 export const AppRouter = () => {
   return (
