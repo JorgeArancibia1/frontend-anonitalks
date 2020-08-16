@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from '../../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { startLogin } from "../../actions/authAction";
+import { Link } from "react-router-dom";
 
 export const LoginScreen = () => {
 
@@ -43,7 +44,8 @@ export const LoginScreen = () => {
           onChange={ handleLoginInputChange }
         />
 
-        <button type="submit" className="">Entrar</button>
+        <input type="submit" className="" value="Entrar" />
+        <Link to="/signup">Sign up</Link>
       </form>
     </div>
   );
