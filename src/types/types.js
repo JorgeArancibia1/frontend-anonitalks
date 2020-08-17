@@ -6,6 +6,8 @@ export const types = {
 
   authStartRegister: '[auth] Start Register',
   authStartTokenRenew: '[auth] Start token renew',
-  authLogout: '[auth] Logout'
+  authLogout: '[auth] Logout',
 
+  postsLoaded: '[posts] Posts loaded',
+  sendPost: '[post] Send post'
 }
