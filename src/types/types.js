@@ -10,7 +10,8 @@ export const types = {
 
   postsLoaded: '[posts] Posts loaded',
   sendPost: '[post] Send post',
-  changeAddRoute: '[post] Change add route',
+  updatePost: '[post] Update post',
+  deletePost: '[post] Delete post',
 
   openModal: '[modal] Open modal',
   closeModal: '[modal] Close modal'

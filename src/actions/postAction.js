@@ -11,17 +11,20 @@ export const postsStartLoading = () => {
 
       const posts = body.posts;
 
-      return dispatch(postsLoaded(posts));
+      return dispatch({
+        type: types.postsLoaded,
+        payload: posts,
+      });
     } catch (error) {
       console.log(error);
     }
   };
 };
 
-const postsLoaded = (posts) => ({
-  type: types.postsLoaded,
-  payload: posts,
-});
+// const postsLoaded = (posts) => ({
+//   type: types.postsLoaded,
+//   payload: posts,
+// });
 
 export const sendPost = (title, content) => {
   return async (dispatch) => {
@@ -37,11 +40,11 @@ export const sendPost = (title, content) => {
           type: types.sendPost,
           payload: post,
         });
-        Swal.fire('Listo!', "Post Agregado!", 'success');
-        dispatch(closeModal())
+        Swal.fire("Listo!", "Post Agregado!", "success");
+        dispatch(closeModal());
       } else {
-        Swal.fire('Error', body.errors.title.msg, 'error');
-        Swal.fire('Error', body.errors.content.msg, 'error');
+        Swal.fire("Error", body.errors.title.msg, "error");
+        Swal.fire("Error", body.errors.content.msg, "error");
       }
     } catch (error) {
       console.log(error);
@@ -49,3 +52,19 @@ export const sendPost = (title, content) => {
   };
 };
 
+export const postDelete = (id) => {
+  return async (dispatch) => {
+    try {
+      const resp = await fetchConToken(`posts/${id}`, {}, "DELETE");
+      const body = await resp.json();
+
+      if (body.ok) {
+        dispatch({ type: types.deletePost });
+      } else {
+        Swal.fire("Error", body.msg, "error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

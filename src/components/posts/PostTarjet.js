@@ -1,16 +1,24 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { useDispatch } from "react-redux";
+import { postDelete } from '../../actions/postAction'
 
-export const PostTarjet = ({user, title, content}) => {
+export const PostTarjet = ({user, title, content, id}) => {
   
+const dispatch = useDispatch()
+
   const deletePost = () => {
-    console.log('post borrado');
+    dispatch(postDelete(id));
+  }
+
+  const updatePost = () => {
+    console.log('post actualizado');
   }
   
   return (
     <div>
       <button onClick={deletePost}>Eliminar</button>
-      <button>Actualizar</button>
+      <button onClick={updatePost}>Actualizar</button>
       <h3>{ user }</h3>
       <span>{ title }</span>
       <p>

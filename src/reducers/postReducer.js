@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export const postReducer = (state = initialState, action) => {
-  // console.log(action);
 
   switch (action.type) {
     case types.postsLoaded:
@@ -17,10 +16,13 @@ export const postReducer = (state = initialState, action) => {
     case types.sendPost:
       return {
         ...state.posts,
-        posts: [
-          ...state.posts,
-          action.payload
-      ]
+        posts: [...state.posts, action.payload],
+      };
+
+    case types.deletePost:
+      return {
+        ...state,
+        posts: state.posts.filter((post) => post.id !== state.posts.id)
       };
 
     default:
