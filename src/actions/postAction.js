@@ -1,5 +1,7 @@
 import { fetchConToken } from "../helpers/fetch";
 import { types } from "../types/types";
+import Swal from "sweetalert2";
+import { closeModal } from "./modalAction";
 
 export const postsStartLoading = () => {
   return async (dispatch) => {
@@ -7,12 +9,9 @@ export const postsStartLoading = () => {
       const resp = await fetchConToken("posts");
       const body = await resp.json();
 
-      // console.log(body);
-
       const posts = body.posts;
 
-      // console.log(posts);
-      dispatch(postsLoaded(posts));
+      return dispatch(postsLoaded(posts));
     } catch (error) {
       console.log(error);
     }
@@ -24,21 +23,29 @@ const postsLoaded = (posts) => ({
   payload: posts,
 });
 
-
-export const sendPost = (post) => {
+export const sendPost = (title, content) => {
   return async (dispatch) => {
     try {
-      const resp = await fetchConToken("posts", {post}, 'POST');
+      const resp = await fetchConToken("posts", { title, content }, "POST");
       const body = await resp.json();
 
-      // console.log(body);
+      const { post } = body;
+      console.log(post);
 
-      const posts = body.posts;
-
-      // console.log(posts);
-      dispatch(postsLoaded(posts));
+      if (body.ok) {
+        dispatch({
+          type: types.sendPost,
+          payload: post,
+        });
+        Swal.fire('Listo!', "Post Agregado!", 'success');
+        dispatch(closeModal())
+      } else {
+        Swal.fire('Error', body.errors.title.msg, 'error');
+        Swal.fire('Error', body.errors.content.msg, 'error');
+      }
     } catch (error) {
       console.log(error);
     }
   };
 };
+

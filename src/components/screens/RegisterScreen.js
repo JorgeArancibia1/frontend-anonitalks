@@ -3,6 +3,7 @@ import { startRegister } from '../../actions/authAction';
 import { useDispatch } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 export const RegisterScreen = () => {
@@ -75,6 +76,7 @@ export const RegisterScreen = () => {
 
         <input type="submit" className="" value="Register" />
       </form>
+      <Link to="/login" >Login</Link>
     </div>
   )
 }

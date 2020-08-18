@@ -9,5 +9,9 @@ export const types = {
   authLogout: '[auth] Logout',
 
   postsLoaded: '[posts] Posts loaded',
-  sendPost: '[post] Send post'
+  sendPost: '[post] Send post',
+  changeAddRoute: '[post] Change add route',
+
+  openModal: '[modal] Open modal',
+  closeModal: '[modal] Close modal'
 }

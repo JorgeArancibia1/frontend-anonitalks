@@ -2,8 +2,15 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 export const PostTarjet = ({user, title, content}) => {
+  
+  const deletePost = () => {
+    console.log('post borrado');
+  }
+  
   return (
     <div>
+      <button onClick={deletePost}>Eliminar</button>
+      <button>Actualizar</button>
       <h3>{ user }</h3>
       <span>{ title }</span>
       <p>

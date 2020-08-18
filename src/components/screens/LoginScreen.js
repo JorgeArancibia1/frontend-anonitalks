@@ -25,20 +25,20 @@ export const LoginScreen = () => {
       <h1>LoginScreen</h1>
       <form onSubmit={ handleLogin }>
         <input
+          className=""
           type="text"
           placeholder="Email"
           name="lemail"
-          className=""
           autoComplete="off"
           value={ lemail }
           onChange={ handleLoginInputChange }
         />
 
         <input
+          className=""
           type="text"
           placeholder="Password"
           name="lpassword"
-          className=""
           autoComplete="off"
           value={ lpassword }
           onChange={ handleLoginInputChange }

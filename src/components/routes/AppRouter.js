@@ -48,6 +48,12 @@ export const AppRouter = () => {
             component={ PostsScreen }
             isAuthenticated={!!uid}
           />
+          <PrivateRoute 
+            exact 
+            path="/posts/add" 
+            component={ PostsScreen }
+            isAuthenticated={!!uid}
+          />
           <PrivateRoute
             exact 
             path="/" 
