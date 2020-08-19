@@ -2,16 +2,16 @@ import React from "react";
 import "../../styles/modal.css";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
-import { closeModal } from "../../actions/modalAction";
+import { closeModal, updateModal } from "../../actions/modalAction";
 import { useForm } from "../../hooks/useForm";
-import { sendPost, postUpdate, cleanPost } from "../../actions/postAction";
+import { sendPost, postUpdate } from "../../actions/postAction";
 import { Form } from "../../helpers/Form";
 
 Modal.setAppElement("#root");
 
 export const NewPostModal = () => {
   const dispatch = useDispatch();
-  const { modalOpen, updateModal } = useSelector((state) => state.modal);
+  const { modalOpen, typeModal } = useSelector((state) => state.modal);
   // const {title, content} = useSelector((state) => state.posts.post )
 
   const [formPostValues, handlePostInputChange] = useForm({
@@ -25,11 +25,12 @@ export const NewPostModal = () => {
 
   const closeModalHandle = () => {
     dispatch(closeModal());
+    dispatch(updateModal(false));
   };
 
   const addPost = (e) => {
+    
     e.preventDefault();
-    dispatch(cleanPost())
     dispatch(sendPost(titleForm, contentForm));
   };
 
@@ -47,7 +48,7 @@ export const NewPostModal = () => {
         className="modal"
         overlayClassName="modal-fondo"
       >
-        {updateModal? 
+        {typeModal? 
           <Form 
           actionF={updatePost}
           value="Actualizar"

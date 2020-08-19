@@ -12,7 +12,7 @@ export const Form = ({actionF, value, handlePostInputChange, titleForm, contentF
             type="text"
             name="titleForm"
             autoComplete="off"
-            value={title}
+            value={title?title:titleForm}
             onChange={handlePostInputChange}
           />
           <br />
@@ -22,7 +22,7 @@ export const Form = ({actionF, value, handlePostInputChange, titleForm, contentF
             placeholder="Escribe tu post aqui."
             name="contentForm"
             autoComplete="off"
-            value={content}
+            value={content?content:contentForm}
             onChange={handlePostInputChange}
           />
           <input type="submit" className="mgy center" value={value} />

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Navbar } from '../ui/Navbar'
 import { PostCard } from '../posts/PostCard'
 import { useDispatch, useSelector } from 'react-redux'
-import { postsStartLoading } from '../../actions/postAction'
+import { postsStartLoading, cleanPost } from '../../actions/postAction'
 import { NewPostModal } from '../ui/NewPostModal'
 import { openModal } from '../../actions/modalAction'
 
@@ -20,6 +20,7 @@ export const HomeScreen = () => {
   }, [dispatch])
 
   const handleModal = () => {
+    dispatch(cleanPost())
     dispatch( openModal() );
 }
 

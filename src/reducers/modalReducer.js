@@ -2,7 +2,7 @@ import { types } from "../types/types";
 
 const initialState = {
   modalOpen: false,
-  updateModal: false
+  typeModal: false
 };
 
 export const modalReducer = (state = initialState, action) => {
@@ -22,7 +22,7 @@ export const modalReducer = (state = initialState, action) => {
     case types.updateModal:
       return {
         ...state,
-        updateModal: true
+        typeModal: action.payload
       }
 
     default:

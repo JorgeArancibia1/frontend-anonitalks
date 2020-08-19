@@ -16,8 +16,8 @@ const dispatch = useDispatch()
   }
 
   const openUpdatePost = () => {
+    dispatch(updateModal(true));
     dispatch(openModal());
-    dispatch(updateModal());
     dispatch(setPostId(id, title, content));
     // console.log(id);
   }
