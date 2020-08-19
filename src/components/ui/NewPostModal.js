@@ -4,30 +4,24 @@ import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { closeModal } from "../../actions/modalAction";
 import { useForm } from "../../hooks/useForm";
-import { sendPost } from "../../actions/postAction";
-
-// const customStyles = {
-//   content: {
-//     top: "50%",
-//     left: "50%",
-//     right: "auto",
-//     bottom: "auto",
-//   }
-// };
+import { sendPost, postUpdate, cleanPost } from "../../actions/postAction";
+import { Form } from "../../helpers/Form";
 
 Modal.setAppElement("#root");
 
 export const NewPostModal = () => {
   const dispatch = useDispatch();
-  const { modalOpen } = useSelector((state) => state.modal);
-  const { user } = useSelector((state) => state.posts);
+  const { modalOpen, updateModal } = useSelector((state) => state.modal);
+  // const {title, content} = useSelector((state) => state.posts.post )
 
   const [formPostValues, handlePostInputChange] = useForm({
-    title: "",
-    content: "",
+    titleForm: "",
+    contentForm: "",
   });
 
-  const {title, content} = formPostValues;
+  const {titleForm, contentForm} = formPostValues;
+
+
 
   const closeModalHandle = () => {
     dispatch(closeModal());
@@ -35,21 +29,42 @@ export const NewPostModal = () => {
 
   const addPost = (e) => {
     e.preventDefault();
-    dispatch(sendPost(title, content));
+    dispatch(cleanPost())
+    dispatch(sendPost(titleForm, contentForm));
+  };
+
+  const updatePost = (e) => {
+    e.preventDefault();
+    dispatch(postUpdate(titleForm, contentForm));
   };
 
   return (
     <div>
       <Modal
         isOpen={modalOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModalHandle}
-        // style={customStyles}
         closeTimeoutMS={200}
         className="modal"
         overlayClassName="modal-fondo"
       >
-        <form onSubmit={addPost} className="container">
+        {updateModal? 
+          <Form 
+          actionF={updatePost}
+          value="Actualizar"
+          handlePostInputChange={handlePostInputChange}
+          titleForm={titleForm}
+          contentForm={contentForm}
+        />:
+        <Form 
+          actionF={addPost}
+          value="Postear"
+          handlePostInputChange={handlePostInputChange}
+          titleForm={titleForm}
+          contentForm={contentForm}
+        />
+        }
+        
+        {/* <form onSubmit={addPost} className="container">
           <h4>
             <strong>{user}</strong>
           </h4>
@@ -73,7 +88,7 @@ export const NewPostModal = () => {
             onChange={handlePostInputChange}
           />
           <input type="submit" className="mgy center" value="Postear" />
-        </form>
+        </form> */}
       </Modal>
     </div>
   );

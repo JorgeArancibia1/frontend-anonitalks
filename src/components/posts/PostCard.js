@@ -1,24 +1,31 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { postDelete } from '../../actions/postAction'
+import { postDelete, setPostId } from '../../actions/postAction'
+import { openModal, updateModal } from "../../actions/modalAction";
 
-export const PostTarjet = ({user, title, content, id}) => {
+export const PostCard = ({user, title, content, id}) => {
   
 const dispatch = useDispatch()
 
-  const deletePost = () => {
+// console.log(id);
+
+  const openDeletePost = () => {
     dispatch(postDelete(id));
+    // console.log(id);
   }
 
-  const updatePost = () => {
-    console.log('post actualizado');
+  const openUpdatePost = () => {
+    dispatch(openModal());
+    dispatch(updateModal());
+    dispatch(setPostId(id, title, content));
+    // console.log(id);
   }
   
   return (
     <div>
-      <button onClick={deletePost}>Eliminar</button>
-      <button onClick={updatePost}>Actualizar</button>
+      <button onClick={openDeletePost}>Eliminar</button>
+      <button onClick={openUpdatePost}>Actualizar</button>
       <h3>{ user }</h3>
       <span>{ title }</span>
       <p>
@@ -28,13 +35,13 @@ const dispatch = useDispatch()
   );
 };
 
-PostTarjet.propTypes = {
+PostCard.propTypes = {
   user: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired
 }
 
-PostTarjet.defaultProps = {
+PostCard.defaultProps = {
   user: 'User',
   title: 'Title',
   content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere animi porro hic quaerat, doloribus possimus fugit sunt ex obcaecati dolores, quidem veritatis repellendus velit dolor! Ea tempora asperiores consectetur nulla!'

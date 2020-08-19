@@ -14,5 +14,9 @@ export const types = {
   deletePost: '[post] Delete post',
 
   openModal: '[modal] Open modal',
-  closeModal: '[modal] Close modal'
+  closeModal: '[modal] Close modal',
+  updateModal: '[modal] Type modal',
+
+  postId: '[post] postId',
+  cleanPost: '[post] cleanPost'
 }

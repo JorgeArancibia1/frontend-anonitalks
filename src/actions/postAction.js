@@ -54,12 +54,14 @@ export const sendPost = (title, content) => {
 
 export const postDelete = (id) => {
   return async (dispatch) => {
+    // console.log(id);
     try {
       const resp = await fetchConToken(`posts/${id}`, {}, "DELETE");
       const body = await resp.json();
 
       if (body.ok) {
         dispatch({ type: types.deletePost });
+        Swal.fire("Listo!", "Post Borrado!", "success");
       } else {
         Swal.fire("Error", body.msg, "error");
       }
@@ -68,3 +70,54 @@ export const postDelete = (id) => {
     }
   };
 };
+
+export const postUpdate = (title, content) => {
+  return async (dispatch, getState) => {
+
+    const id  = getState().posts.post;
+    
+
+    console.log(id);
+    console.log(id);
+    console.log(id);
+    
+    try {
+      const resp = await fetchConToken(`posts/${id}`, {title, content}, "PUT");
+      const body = await resp.json();
+
+      const post = {
+        title,
+        content,
+        id
+      }
+
+      if (body.ok) {
+        dispatch({
+          type: types.updatePost,
+          payload: post,
+        });
+        Swal.fire("Listo!", "Post Actualizado!", "success");
+        dispatch(closeModal());
+      } else {
+        Swal.fire("Error", body.msg, "error");
+        Swal.fire("Error", body.msg, "error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const setPostId = (id, title, content) => ({
+   type: types.postId,
+   payload: {
+     id,
+     title,
+     content
+   }
+  });
+
+  export const cleanPost = () => ({
+    type: types.postId,
+    payload: {}
+   });
