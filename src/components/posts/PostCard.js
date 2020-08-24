@@ -8,7 +8,7 @@ export const PostCard = ({user, title, content, id}) => {
   
 const dispatch = useDispatch()
 
-// console.log(id);
+// console.log("PostCard");
 
   const openDeletePost = () => {
     dispatch(postDelete(id));

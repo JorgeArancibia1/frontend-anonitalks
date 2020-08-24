@@ -26,7 +26,7 @@ export const postsStartLoading = () => {
 //   payload: posts,
 // });
 
-export const sendPost = (title, content) => {
+export const sendPost = (title = "", content = "") => {
   return async (dispatch) => {
     try {
       const resp = await fetchConToken("posts", { title, content }, "POST");
@@ -42,6 +42,7 @@ export const sendPost = (title, content) => {
         });
         Swal.fire("Listo!", "Post Agregado!", "success");
         dispatch(closeModal());
+        dispatch(postsStartLoading());
       } else {
         Swal.fire("Error", body.errors.title.msg, "error");
         Swal.fire("Error", body.errors.content.msg, "error");
@@ -62,6 +63,7 @@ export const postDelete = (id) => {
       if (body.ok) {
         dispatch({ type: types.deletePost });
         Swal.fire("Listo!", "Post Borrado!", "success");
+        dispatch(postsStartLoading());
       } else {
         Swal.fire("Error", body.msg, "error");
       }
@@ -71,10 +73,10 @@ export const postDelete = (id) => {
   };
 };
 
-export const postUpdate = (title, content) => {
+export const postUpdate = (title = "", content = "") => {
   return async (dispatch, getState) => {
 
-    const id  = getState().posts.post;
+    const id  = getState().posts.post.id;
     
 
     console.log(id);
@@ -98,6 +100,8 @@ export const postUpdate = (title, content) => {
         });
         Swal.fire("Listo!", "Post Actualizado!", "success");
         dispatch(closeModal());
+        dispatch(postsStartLoading());
+        cleanPost();
       } else {
         Swal.fire("Error", body.msg, "error");
         Swal.fire("Error", body.msg, "error");
@@ -109,13 +113,13 @@ export const postUpdate = (title, content) => {
 };
 
 export const setPostId = (id, title, content) => ({
-   type: types.postId,
-   payload: {
-     id,
-     title,
-     content
-   }
-  });
+  type: types.postId,
+  payload: {
+    id,
+    title,
+    content
+  }
+});
 
   export const cleanPost = () => ({
     type: types.postId,

@@ -4,39 +4,70 @@ import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { closeModal, updateModal } from "../../actions/modalAction";
 import { useForm } from "../../hooks/useForm";
-import { sendPost, postUpdate } from "../../actions/postAction";
+import {
+  sendPost,
+  postUpdate,
+  postsStartLoading,
+  cleanPost,
+} from "../../actions/postAction";
 import { Form } from "../../helpers/Form";
 
 Modal.setAppElement("#root");
 
-export const NewPostModal = () => {
+export const NewPostModal = React.memo(() => {
   const dispatch = useDispatch();
   const { modalOpen, typeModal } = useSelector((state) => state.modal);
-  // const {title, content} = useSelector((state) => state.posts.post )
+  const state = useSelector((state) => state.posts);
 
-  const [formPostValues, handlePostInputChange] = useForm({
-    titleForm: "",
-    contentForm: "",
+  // console.log(state.post);
+  // console.log(state.post.title);
+  // console.log(state.post.content);
+  // console.log("Modal");
+  // console.log(content)
+
+  let title = "";
+  let content = "";
+  
+  if (!typeModal) {
+    title = ""
+    content = ""
+  } else {
+    title = state.post.title
+    content = state.post.content
+    console.log(title);
+  }
+
+  // console.log(state.post.content);
+  const [formPostValues, handlePostInputChange, reset] = useForm({
+    titlePost: title,
+    contentPost: content,
   });
 
-  const {titleForm, contentForm} = formPostValues;
+  const [formUpdateValues, handleUpdateInputChange] = useForm({
+    titleUpdate: title,
+    contentUpdate: content,
+  });
 
-
+  const { titlePost, contentPost } = formPostValues;
+  const { titleUpdate, contentUpdate } = formUpdateValues;
 
   const closeModalHandle = () => {
     dispatch(closeModal());
     dispatch(updateModal(false));
+    dispatch(postsStartLoading());
   };
 
   const addPost = (e) => {
-    
     e.preventDefault();
-    dispatch(sendPost(titleForm, contentForm));
+    dispatch(sendPost(titlePost, contentPost));
+    reset();
+    dispatch(postsStartLoading());
   };
 
   const updatePost = (e) => {
+    
     e.preventDefault();
-    dispatch(postUpdate(titleForm, contentForm));
+    dispatch(postUpdate(titleUpdate, contentUpdate));
   };
 
   return (
@@ -48,49 +79,30 @@ export const NewPostModal = () => {
         className="modal"
         overlayClassName="modal-fondo"
       >
-        {typeModal? 
-          <Form 
-          actionF={updatePost}
-          value="Actualizar"
-          handlePostInputChange={handlePostInputChange}
-          titleForm={titleForm}
-          contentForm={contentForm}
-        />:
-        <Form 
-          actionF={addPost}
-          value="Postear"
-          handlePostInputChange={handlePostInputChange}
-          titleForm={titleForm}
-          contentForm={contentForm}
-        />
-        }
-        
-        {/* <form onSubmit={addPost} className="container">
-          <h4>
-            <strong>{user}</strong>
-          </h4>
-          <input
-            className="inTitle"
-            placeholder="  Título del post"
-            type="text"
-            name="title"
-            autoComplete="off"
-            value={title}
-            onChange={handlePostInputChange}
+        {typeModal ? (
+          <Form
+            actionF={updatePost}
+            // value="Actualizar"
+            handleInputChange={handleUpdateInputChange}
+            title={titleUpdate}
+            content={contentUpdate}
+            inputName="titleUpdate"
+            inputContent="contentUpdate"
+            textButton="Actualizar"
           />
-          <br />
-          <textarea
-            type="text"
-            className="text-content"
-            placeholder="Escribe tu post aqui."
-            name="content"
-            autoComplete="off"
-            value={content}
-            onChange={handlePostInputChange}
+        ) : (
+          <Form
+            actionF={addPost}
+            // value="Postear"
+            handleInputChange={handlePostInputChange}
+            title={titlePost}
+            content={contentPost}
+            inputName="titlePost"
+            inputContent="contentPost"
+            textButton="Postear"
           />
-          <input type="submit" className="mgy center" value="Postear" />
-        </form> */}
+        )}
       </Modal>
     </div>
   );
-};
+});
