@@ -14,44 +14,29 @@ import { Form } from "../../helpers/Form";
 
 Modal.setAppElement("#root");
 
-export const NewPostModal = React.memo(() => {
+export const NewPostModal = () => {
   const dispatch = useDispatch();
   const { modalOpen, typeModal } = useSelector((state) => state.modal);
-  const state = useSelector((state) => state.posts);
+  const {post} = useSelector((state) => state.posts);
 
-  // console.log(state.post);
-  // console.log(state.post.title);
-  // console.log(state.post.content);
-  // console.log("Modal");
-  // console.log(content)
+  console.log(post.title);
+  console.log(post.content);
 
-  let title = "";
-  let content = "";
-  
-  if (!typeModal) {
-    title = ""
-    content = ""
-  } else {
-    title = state.post.title
-    content = state.post.content
-    console.log(title);
-  }
-
-  // console.log(state.post.content);
   const [formPostValues, handlePostInputChange, reset] = useForm({
-    titlePost: title,
-    contentPost: content,
+    titlePost: '',
+    contentPost: ''
   });
 
   const [formUpdateValues, handleUpdateInputChange] = useForm({
-    titleUpdate: title,
-    contentUpdate: content,
+    titleUpdate: post.title,
+    contentUpdate: post.content
   });
 
   const { titlePost, contentPost } = formPostValues;
   const { titleUpdate, contentUpdate } = formUpdateValues;
 
   const closeModalHandle = () => {
+    dispatch(cleanPost());
     dispatch(closeModal());
     dispatch(updateModal(false));
     dispatch(postsStartLoading());
@@ -65,13 +50,13 @@ export const NewPostModal = React.memo(() => {
   };
 
   const updatePost = (e) => {
-    
     e.preventDefault();
     dispatch(postUpdate(titleUpdate, contentUpdate));
+    // reset();
   };
 
   return (
-    <div>
+    <>
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModalHandle}
@@ -82,7 +67,6 @@ export const NewPostModal = React.memo(() => {
         {typeModal ? (
           <Form
             actionF={updatePost}
-            // value="Actualizar"
             handleInputChange={handleUpdateInputChange}
             title={titleUpdate}
             content={contentUpdate}
@@ -93,7 +77,6 @@ export const NewPostModal = React.memo(() => {
         ) : (
           <Form
             actionF={addPost}
-            // value="Postear"
             handleInputChange={handlePostInputChange}
             title={titlePost}
             content={contentPost}
@@ -103,6 +86,6 @@ export const NewPostModal = React.memo(() => {
           />
         )}
       </Modal>
-    </div>
+    </>
   );
-});
+};

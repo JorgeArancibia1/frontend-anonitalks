@@ -28,12 +28,12 @@ export const postReducer = (state = initialState, action) => {
         posts: state.posts.filter((post) => post.id !== state.posts.id),
       };
 
-    case types.postUpdated:
+    case types.updatePost:
       return {
-        ...state,
-        posts: state.posts.map((p) =>
-          p.id === action.payload.id ? action.payload : p
-        ),
+        ...state
+        // posts: state.posts.map((p) =>
+        //   p.id === action.payload.id ? action.payload : p
+        // ),
       };
 
     case types.postId:
@@ -44,7 +44,8 @@ export const postReducer = (state = initialState, action) => {
 
     case types.cleanPost:
       return {
-        post: {},
+        ...state,
+        post: action.payload,
       };
 
     default:

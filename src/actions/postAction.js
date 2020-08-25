@@ -122,6 +122,9 @@ export const setPostId = (id, title, content) => ({
 });
 
   export const cleanPost = () => ({
-    type: types.postId,
-    payload: {}
+    type: types.cleanPost,
+    payload: {
+      title: '',
+      content:''
+    }
    });

@@ -1,5 +1,4 @@
 import React from "react";
-// import { useSelector } from 'react-redux'
 
 export const Form = ({
   actionF,
@@ -10,9 +9,6 @@ export const Form = ({
   inputName,
   inputContent,
 }) => {
-  // const {title, content} = useSelector((state) => state.posts.post )
-
-  // console.log("Form");
 
   return (
     <form onSubmit={actionF} className="container">
