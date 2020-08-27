@@ -19,8 +19,17 @@ export const NewPostModal = () => {
   const { modalOpen, typeModal } = useSelector((state) => state.modal);
   const {post} = useSelector((state) => state.posts);
 
-  console.log(post.title);
-  console.log(post.content);
+  // const [state, setstate] = useState([])
+
+  // useEffect(() => {
+  //   effect
+  //   return () => {
+  //     cleanup
+  //   }
+  // }, [state])
+
+  // console.log("A",post.title);
+  // console.log("B", post.content);
 
   const [formPostValues, handlePostInputChange, reset] = useForm({
     titlePost: '',
@@ -28,12 +37,17 @@ export const NewPostModal = () => {
   });
 
   const [formUpdateValues, handleUpdateInputChange] = useForm({
-    titleUpdate: post.title,
-    contentUpdate: post.content
+    titlePost: post.title,
+    contentPost: post.content
   });
 
+  // console.log("1",post.title);
+  // console.log("2",post.content);
+
+
+
   const { titlePost, contentPost } = formPostValues;
-  const { titleUpdate, contentUpdate } = formUpdateValues;
+  // const { titlePost, contentPost } = formUpdateValues;
 
   const closeModalHandle = () => {
     dispatch(cleanPost());
@@ -51,7 +65,7 @@ export const NewPostModal = () => {
 
   const updatePost = (e) => {
     e.preventDefault();
-    dispatch(postUpdate(titleUpdate, contentUpdate));
+    dispatch(postUpdate(titlePost, contentPost));
     // reset();
   };
 
@@ -68,10 +82,10 @@ export const NewPostModal = () => {
           <Form
             actionF={updatePost}
             handleInputChange={handleUpdateInputChange}
-            title={titleUpdate}
-            content={contentUpdate}
+            title={titlePost}
+            content={contentPost}
             inputName="titleUpdate"
-            inputContent="contentUpdate"
+            inputContent="contentPost"
             textButton="Actualizar"
           />
         ) : (

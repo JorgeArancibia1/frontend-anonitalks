@@ -8,6 +8,7 @@ export const AnoniTalksApp = () => {
   return (
     <Provider store={ store }>
       <AppRouter />
+      
     </Provider>
   )
 }

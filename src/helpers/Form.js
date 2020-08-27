@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export const Form = ({
   actionF,
@@ -10,6 +10,16 @@ export const Form = ({
   inputContent,
 }) => {
 
+  const [state, setstate] = useState({title: '', content: ''})
+
+  useEffect(() => {
+    setstate({...state, title, content})
+
+  }, [title, content])
+
+  // console.log(title)
+  // console.log(content)
+
   return (
     <form onSubmit={actionF} className="container">
       <input
@@ -18,7 +28,7 @@ export const Form = ({
         type="text"
         name={inputName}
         autoComplete="off"
-        value={title}
+        value={state.title}
         onChange={handleInputChange}
       />
       <br />
@@ -28,7 +38,7 @@ export const Form = ({
         placeholder="Escribe tu post aqui."
         name={inputContent}
         autoComplete="off"
-        value={content}
+        value={state.content}
         onChange={handleInputChange}
       />
       <input type="submit" className="mgy center" value={textButton} />
