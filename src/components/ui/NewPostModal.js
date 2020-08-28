@@ -48,7 +48,6 @@ export const NewPostModal = () => {
       title: '',
       content: ''
     })
-    // dispatch(postsStartLoading());
   };
 
   const updatePost = (e) => {
