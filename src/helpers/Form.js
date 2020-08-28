@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 export const Form = ({
   actionF,
@@ -10,15 +11,12 @@ export const Form = ({
   inputContent,
 }) => {
 
-  const [state, setstate] = useState({title: '', content: ''})
-
-  useEffect(() => {
-    setstate({...state, title, content})
-
-  }, [title, content])
-
-  // console.log(title)
-  // console.log(content)
+  // const {post} = useSelector((state) => state.posts);
+  // console.log("post.title",post.title)
+  // console.log("title",title)
+  // if (post) {
+  //   return title = post.title
+  // }
 
   return (
     <form onSubmit={actionF} className="container">
@@ -28,7 +26,7 @@ export const Form = ({
         type="text"
         name={inputName}
         autoComplete="off"
-        value={state.title}
+        value={title}
         onChange={handleInputChange}
       />
       <br />
@@ -38,7 +36,7 @@ export const Form = ({
         placeholder="Escribe tu post aqui."
         name={inputContent}
         autoComplete="off"
-        value={state.content}
+        value={content}
         onChange={handleInputChange}
       />
       <input type="submit" className="mgy center" value={textButton} />

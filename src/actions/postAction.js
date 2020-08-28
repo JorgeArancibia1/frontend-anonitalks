@@ -1,7 +1,7 @@
 import { fetchConToken } from "../helpers/fetch";
 import { types } from "../types/types";
 import Swal from "sweetalert2";
-import { closeModal } from "./modalAction";
+import { closeModal, updateModal } from "./modalAction";
 
 export const postsStartLoading = () => {
   return async (dispatch) => {
@@ -78,11 +78,6 @@ export const postUpdate = (title = "", content = "") => {
 
     const id  = getState().posts.post.id;
     
-
-    console.log(id);
-    console.log(id);
-    console.log(id);
-    
     try {
       const resp = await fetchConToken(`posts/${id}`, {title, content}, "PUT");
       const body = await resp.json();
@@ -102,6 +97,7 @@ export const postUpdate = (title = "", content = "") => {
         dispatch(closeModal());
         dispatch(postsStartLoading());
         cleanPost();
+        dispatch(updateModal(false));
       } else {
         Swal.fire("Error", body.msg, "error");
         Swal.fire("Error", body.msg, "error");
