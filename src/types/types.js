@@ -18,5 +18,7 @@ export const types = {
   updateModal: '[modal] Type modal',
 
   postId: '[post] postId',
-  cleanPost: '[post] cleanPost'
+  cleanPost: '[post] cleanPost',
+
+  sendForm: '[form] sendForm'
 }

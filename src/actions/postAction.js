@@ -33,7 +33,7 @@ export const sendPost = (title = "", content = "") => {
       const body = await resp.json();
 
       const { post } = body;
-      console.log(post);
+      // console.log(post);
 
       if (body.ok) {
         dispatch({

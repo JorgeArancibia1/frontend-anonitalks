@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { postDelete, setPostId } from '../../actions/postAction'
 import { openModal, updateModal } from "../../actions/modalAction";
 
-export const PostCard = ({user, title, content, id}) => {
+export const PostCard = ({user, title, content, id, setStatePost}) => {
   
 const dispatch = useDispatch()
 
@@ -15,11 +15,10 @@ const dispatch = useDispatch()
     // console.log(id);
   }
 
-  const openUpdatePost = () => {
+  const openUpdatePost = (e) => {
     dispatch(updateModal(true));
     dispatch(openModal());
     dispatch(setPostId(id, title, content));
-    // console.log(id);
   }
   
   return (

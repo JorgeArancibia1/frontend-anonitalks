@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/modal.css";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,6 +9,7 @@ import {
   cleanPost,
 } from "../../actions/postAction";
 import { Form } from "../../helpers/Form";
+import { sendForm } from "../../actions/formAction";
 
 Modal.setAppElement("#root");
 
@@ -16,20 +17,35 @@ export const NewPostModal = () => {
   const dispatch = useDispatch();
   const { modalOpen, typeModal } = useSelector((state) => state.modal);
   const {post} = useSelector((state) => state.posts);
+  const { form } = useSelector((state) => state);
 
-  const [formState, setFormState] = useState({
-    title: '',
-    content: ''
-  })
+  console.log(post);
+  console.log(form);
 
-  const {title, content} = formState;
+  const {title, content} = post;
 
-  const handleInputChange = ({ target }) => {
+  // const [formState, setFormState] = useState({
+  //   title: statePost.title,
+  //   content: statePost.content
+  // })
 
-    setFormState({
-      ...formState,
-      [ target.name ]: target.value
-    })
+  // const {title, content} = formState;
+
+  // const handleInputChange = ({ target }) => {
+
+  //   setFormState({
+  //     ...formState,
+  //     [ target.name ]: target.value
+  //   })
+  // }
+
+  const handleInputChange = ({target}) => {
+    const {name, value} = target;
+    dispatch(sendForm({
+      ...post,
+      ...form,
+      [ name ]: value
+    }));
   }
 
   const closeModalHandle = () => {
@@ -41,23 +57,24 @@ export const NewPostModal = () => {
 
   const addPost = (e) => {
     e.preventDefault();
-    dispatch(sendPost(title, content));
     
-    setFormState({
-      ...formState,
-      title: '',
-      content: ''
-    })
+    dispatch(sendPost(form.title, form.content));
+    
+    // setFormState({
+    //   ...formState,
+    //   title: '',
+    //   content: ''
+    // })
   };
 
   const updatePost = (e) => {
     e.preventDefault();
-    dispatch(postUpdate(title, content));
-    setFormState({
-      ...formState,
-      title: '',
-      content: ''
-    })
+    dispatch(postUpdate(form.title, form.content));
+    // setFormState({
+    //   ...formState,
+    //   title: '',
+    //   content: ''
+    // })
     
   };
 
@@ -72,20 +89,20 @@ export const NewPostModal = () => {
       >
         {typeModal ? (
           <Form
-            actionF={updatePost}
+            handleSubmit={updatePost}
             handleInputChange={handleInputChange}
-            title={title}
-            content={content}
+            // title={title}
+            // content={content}
             inputName="title"
             inputContent="content"
             textButton="Actualizar"
           />
         ) : (
           <Form
-            actionF={addPost}
+            handleSubmit={addPost}
             handleInputChange={handleInputChange}
-            title={title}
-            content={content}
+            // title={title}
+            // content={content}
             inputName="title"
             inputContent="content"
             textButton="Postear"

@@ -1,15 +1,18 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { sendForm } from "../actions/formAction";
 
 export const Form = ({
-  actionF,
+  handleSubmit,
   textButton,
   handleInputChange,
-  title,
-  content,
+  // title,
+  // content,
   inputName,
   inputContent,
 }) => {
+
+  const { form } = useSelector((state) => state);
 
   // const {post} = useSelector((state) => state.posts);
   // console.log("post.title",post.title)
@@ -17,16 +20,20 @@ export const Form = ({
   // if (post) {
   //   return title = post.title
   // }
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(sendForm({title,content}))
+  // }, [title, content])
 
   return (
-    <form onSubmit={actionF} className="container">
+    <form onSubmit={handleSubmit} className="container">
       <input
         className="inTitle"
         placeholder="  Título del post"
         type="text"
         name={inputName}
         autoComplete="off"
-        value={title}
+        value={form.title}
         onChange={handleInputChange}
       />
       <br />
@@ -36,7 +43,7 @@ export const Form = ({
         placeholder="Escribe tu post aqui."
         name={inputContent}
         autoComplete="off"
-        value={content}
+        value={form.content}
         onChange={handleInputChange}
       />
       <input type="submit" className="mgy center" value={textButton} />

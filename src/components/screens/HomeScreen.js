@@ -5,32 +5,28 @@ import { useDispatch, useSelector } from 'react-redux'
 import { postsStartLoading, cleanPost } from '../../actions/postAction'
 import { NewPostModal } from '../ui/NewPostModal'
 import { openModal } from '../../actions/modalAction'
-// import { refreshEfectt } from '../../hooks/refreshEffect'
+import { sendForm } from '../../actions/formAction'
 
 export const HomeScreen = () => {
 
+  // const [statePost, setStatePost] = useState(null)
+
   const {posts} = useSelector(state => state.posts);
+  const { form } = useSelector((state) => state);
+
+  console.log(form);
 
   const dispatch = useDispatch();
-
-  // console.log(posts);
-  // console.log("Home");
-
 
     useEffect(() => {
       dispatch(postsStartLoading());
     }, [dispatch])
 
-    // useEffect(() => {
-    //   dispatch(postsStartLoading());
-    //   console.log("objeto cambio");
-    // }, [posts])
-
-    // refreshEfectt()
-
-  // useMemo(refreshEfectthome, [dispatch])
-
   const handleModal = () => {
+    dispatch(sendForm({
+      // form.title='',
+      // form.content=''
+    }));
     dispatch(cleanPost())
     dispatch(openModal());
 }
