@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { LoginScreen } from "../screens/LoginScreen";
 import { HomeScreen } from "../screens/HomeScreen";
+import AuxScreen  from "../screens/AuxScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { startChecking } from "../../actions/authAction";
 import { PublicRoute } from "./PublicRoute";
@@ -41,6 +42,11 @@ export const AppRouter = React.memo(() => {
             component={RegisterScreen}
             isAuthenticated={!!uid}
           />
+           <Route 
+           exact
+            path="/aux"
+            component={AuxScreen}
+        />
           {/* <PrivateRoute
             exact
             path="/posts"

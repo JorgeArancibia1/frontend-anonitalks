@@ -1,114 +1,110 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/modal.css";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
-import { closeModal, updateModal } from "../../actions/modalAction";
+import { closeModal } from "../../actions/modalAction";
+import { closeModal as closeAuxModal } from "../../actions/auxAction";
 import {
   sendPost,
   postUpdate,
-  cleanPost,
 } from "../../actions/postAction";
 import { Form } from "../../helpers/Form";
-import { sendForm } from "../../actions/formAction";
 
 Modal.setAppElement("#root");
 
 export const NewPostModal = () => {
   const dispatch = useDispatch();
-  const { modalOpen, typeModal } = useSelector((state) => state.modal);
-  const {post} = useSelector((state) => state.posts);
-  const { form } = useSelector((state) => state);
+  // const { modalOpen, typeModal } = useSelector((state) => state.modal);
+  // const { openModal, type, selectedPost } = useSelector(({auxState}) => auxState);
+  const { openModal, type, selectedPost } = useSelector(({modal}) => modal);
 
-  console.log(post);
-  console.log(form);
+  // const { form } = useSelector((state) => state);
+  // const { post } = useSelector((state) => state.posts);
 
-  const {title, content} = post;
+  // console.log("Este es type ==== ",type, openModal);
 
-  // const [formState, setFormState] = useState({
-  //   title: statePost.title,
-  //   content: statePost.content
-  // })
-
+  const handleCloseModal= () => dispatch(closeModal())
+  // const {title, content} = post;
   // const {title, content} = formState;
 
-  // const handleInputChange = ({ target }) => {
+    const [datos, setDatos] = useState({
+      title: '',
+      content: ''
+    })
 
-  //   setFormState({
-  //     ...formState,
-  //     [ target.name ]: target.value
-  //   })
-  // }
-
-  const handleInputChange = ({target}) => {
-    const {name, value} = target;
-    dispatch(sendForm({
-      ...post,
-      ...form,
-      [ name ]: value
-    }));
+  const handleInputChange = (e) => {
+    setDatos({
+      ...datos,
+      [e.target.name] : e.target.value
+    })
+    console.log("e.target.value =", e.target.value)
   }
 
-  const closeModalHandle = () => {
-    dispatch(cleanPost());
-    dispatch(closeModal());
-    dispatch(updateModal(false));
-    // dispatch(postsStartLoading());
-  };
+  const [up, setUp] = useState({
+    title: '',
+    content: ''
+  })
+
+  const handleInputChangeUp = (e) => {
+    setUp({
+      ...up,
+      [e.target.name] : e.target.value
+    })
+    console.log("e.target.value =", e.target.value)
+  }
+
+  // const handleInputChange = ({target}) => {
+  //   const {name, value} = target;
+  //   dispatch(sendForm({
+  //     ...form,
+  //     [ name ]: value
+  //   }));
+  // }
 
   const addPost = (e) => {
     e.preventDefault();
     
-    dispatch(sendPost(form.title, form.content));
-    
-    // setFormState({
-    //   ...formState,
-    //   title: '',
-    //   content: ''
-    // })
+    dispatch(sendPost(datos.title, datos.content));
   };
 
   const updatePost = (e) => {
     e.preventDefault();
-    dispatch(postUpdate(form.title, form.content));
-    // setFormState({
-    //   ...formState,
-    //   title: '',
-    //   content: ''
-    // })
-    
+    dispatch(postUpdate(up.title, up.content));    
   };
+
 
   return (
     <>
       <Modal
-        isOpen={modalOpen}
-        onRequestClose={closeModalHandle}
+        isOpen={openModal}
+        onRequestClose={handleCloseModal}
         closeTimeoutMS={200}
         className="modal"
         overlayClassName="modal-fondo"
       >
-        {typeModal ? (
+        {type === 'create' ? (
           <Form
-            handleSubmit={updatePost}
-            handleInputChange={handleInputChange}
-            // title={title}
-            // content={content}
-            inputName="title"
-            inputContent="content"
-            textButton="Actualizar"
-          />
+          handleSubmit={addPost}
+          handleInputChange={handleInputChange}
+          title={selectedPost.title}
+          content={selectedPost.content}
+          textButton="Postear"
+        />
         ) : (
           <Form
-            handleSubmit={addPost}
-            handleInputChange={handleInputChange}
-            // title={title}
-            // content={content}
-            inputName="title"
-            inputContent="content"
-            textButton="Postear"
+            handleSubmit={updatePost}
+            handleInputChange={handleInputChangeUp}
+            title={selectedPost.title}
+            content={selectedPost.content}
+            textButton="Actualizar"
           />
         )}
+        <button onClick={handleCloseModal}>Cerrar modal</button> 
       </Modal>
     </>
   );
 };
+
+
+
+

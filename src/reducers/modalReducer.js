@@ -1,8 +1,10 @@
 import { types } from "../types/types";
 
 const initialState = {
-  modalOpen: false,
-  typeModal: false
+  //posts: [],
+  selectedPost: {},
+  openModal: false,
+  type: 'create'
 };
 
 export const modalReducer = (state = initialState, action) => {
@@ -10,20 +12,18 @@ export const modalReducer = (state = initialState, action) => {
     case types.openModal:
       return {
         ...state,
-        modalOpen: true,
+        selectedPost: action.payload.content,
+        type: action.payload.type,
+        openModal: true
       };
 
     case types.closeModal:
       return {
         ...state,
-        modalOpen: false,
+        selectedPost: {},
+        type: 'create',
+        openModal: false
       };
-
-    case types.updateModal:
-      return {
-        ...state,
-        typeModal: action.payload
-      }
 
     default:
       return state;

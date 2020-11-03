@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { postDelete, setPostId } from '../../actions/postAction'
-import { openModal, updateModal } from "../../actions/modalAction";
+import { postDelete } from '../../actions/postAction'
+import { openModal } from "../../actions/modalAction";
+// import { openModal } from "../../actions/auxAction";
 
-export const PostCard = ({user, title, content, id, setStatePost}) => {
+export const PostCard = ({user, title, content, id}) => {
   
 const dispatch = useDispatch()
 
@@ -14,17 +15,16 @@ const dispatch = useDispatch()
     dispatch(postDelete(id));
     // console.log(id);
   }
-
-  const openUpdatePost = (e) => {
-    dispatch(updateModal(true));
-    dispatch(openModal());
-    dispatch(setPostId(id, title, content));
-  }
   
+  const HandleOpenModal=()=> {
+    // console.log({type: 'update', content:{id, title, content}})
+    dispatch(openModal({type: 'update', content:{id, title, content}}))
+  }
+  // dispatch(openAuxModal({type: 'update', content:{id, title, content}}))
   return (
     <div>
       <button onClick={openDeletePost}>Eliminar</button>
-      <button onClick={openUpdatePost}>Actualizar</button>
+      <button onClick={HandleOpenModal}>Actualizar</button>
       <h3>{ user }</h3>
       <span>{ title }</span>
       <p>

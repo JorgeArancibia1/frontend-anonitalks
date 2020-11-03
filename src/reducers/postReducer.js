@@ -23,12 +23,19 @@ export const postReducer = (state = initialState, action) => {
       };
 
     case types.deletePost:
+       const updatedPost = state.posts.filter((post) => post.id !== action.payload)
       return {
         ...state,
-        posts: state.posts.filter((post) => post.id !== state.posts.id),
+        posts: updatedPost,
       };
 
     case types.updatePost:
+      // const arrayUpdated = updatedArray(array, id)
+      // Encontrar el index y obtienes el objeto
+      // Actualizas el objeto
+      // Reemplazar en el index el nuevo obj en el array
+      // Guardas el array actualizado
+      // lodash
       return {
         ...state
         // posts: state.posts.map((p) =>

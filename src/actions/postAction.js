@@ -1,7 +1,7 @@
 import { fetchConToken } from "../helpers/fetch";
 import { types } from "../types/types";
 import Swal from "sweetalert2";
-import { closeModal, updateModal } from "./modalAction";
+import { closeModal } from "./modalAction";
 
 export const postsStartLoading = () => {
   return async (dispatch) => {
@@ -61,7 +61,7 @@ export const postDelete = (id) => {
       const body = await resp.json();
 
       if (body.ok) {
-        dispatch({ type: types.deletePost });
+        dispatch({ type: types.deletePost, payload: id });
         Swal.fire("Listo!", "Post Borrado!", "success");
         dispatch(postsStartLoading());
       } else {
@@ -97,7 +97,7 @@ export const postUpdate = (title = "", content = "") => {
         dispatch(closeModal());
         dispatch(postsStartLoading());
         cleanPost();
-        dispatch(updateModal(false));
+        //dispatch(updateModal(false));
       } else {
         Swal.fire("Error", body.msg, "error");
         Swal.fire("Error", body.msg, "error");

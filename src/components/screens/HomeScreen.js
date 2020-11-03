@@ -11,10 +11,10 @@ export const HomeScreen = () => {
 
   // const [statePost, setStatePost] = useState(null)
 
-  const {posts} = useSelector(state => state.posts);
+  const { posts } = useSelector(state => state.posts);
   const { form } = useSelector((state) => state);
 
-  console.log(form);
+  // console.log(form);
 
   const dispatch = useDispatch();
 
@@ -22,21 +22,14 @@ export const HomeScreen = () => {
       dispatch(postsStartLoading());
     }, [dispatch])
 
-  const handleModal = () => {
-    dispatch(sendForm({
-      // form.title='',
-      // form.content=''
-    }));
-    dispatch(cleanPost())
-    dispatch(openModal());
-}
+    const handleOpenModal = () => dispatch(openModal({}))
 
   return (
     <div>
       <h1>HomeScreen</h1>
       <Navbar />
       <hr/>
-      <button onClick={handleModal}>
+      <button onClick={handleOpenModal}>
         Agregar post
       </button>
       <center>

@@ -6,24 +6,9 @@ export const Form = ({
   handleSubmit,
   textButton,
   handleInputChange,
-  // title,
-  // content,
-  inputName,
-  inputContent,
+  title,
+  content,
 }) => {
-
-  const { form } = useSelector((state) => state);
-
-  // const {post} = useSelector((state) => state.posts);
-  // console.log("post.title",post.title)
-  // console.log("title",title)
-  // if (post) {
-  //   return title = post.title
-  // }
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(sendForm({title,content}))
-  // }, [title, content])
 
   return (
     <form onSubmit={handleSubmit} className="container">
@@ -31,9 +16,9 @@ export const Form = ({
         className="inTitle"
         placeholder="  Título del post"
         type="text"
-        name={inputName}
+        name="title"
         autoComplete="off"
-        value={form.title}
+        value={title}
         onChange={handleInputChange}
       />
       <br />
@@ -41,9 +26,9 @@ export const Form = ({
         type="text"
         className="text-content"
         placeholder="Escribe tu post aqui."
-        name={inputContent}
+        name="content"
         autoComplete="off"
-        value={form.content}
+        value={content}
         onChange={handleInputChange}
       />
       <input type="submit" className="mgy center" value={textButton} />
