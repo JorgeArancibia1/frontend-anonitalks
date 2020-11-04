@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "239f1fc17a8858a988ef1708189d8086",
+    "revision": "9e0bce0182ce48e171e1be1a81c986ea",
     "url": "/frontend-anonitalks/index.html"
   },
   {
-    "revision": "b9b5cee0fee91bdb88f6",
+    "revision": "af201fc3ed28519e6037",
     "url": "/frontend-anonitalks/static/css/main.36705d4a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-anonitalks/static/js/2.c06b3ae8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b9b5cee0fee91bdb88f6",
-    "url": "/frontend-anonitalks/static/js/main.bf89dff3.chunk.js"
+    "revision": "af201fc3ed28519e6037",
+    "url": "/frontend-anonitalks/static/js/main.6c92363f.chunk.js"
   },
   {
     "revision": "9fca3a77e6e41dc83006",
