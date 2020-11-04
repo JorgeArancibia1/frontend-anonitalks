@@ -25,7 +25,7 @@ jobs:
         REACT_APP_API_URL: ${{secrets.REACT_APP_API_URL}} 
       
     - name: deploy
-      uses: JamesIves/github-pages-deploy-action@realeses/v3
+      uses: JamesIves/github-pages-deploy-action@releases/v3
       with: 
         BRANCH: gh-pages
         FOLDER: build
