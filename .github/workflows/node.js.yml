@@ -21,6 +21,7 @@ jobs:
       run: |
         npm install
         npm run build
+        npm run deploy
       env:
         REACT_APP_API_URL: ${{secrets.REACT_APP_API_URL}} 
       
