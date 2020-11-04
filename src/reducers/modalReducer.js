@@ -1,7 +1,6 @@
 import { types } from "../types/types";
 
 const initialState = {
-  //posts: [],
   selectedPost: {},
   openModal: false,
   type: 'create'

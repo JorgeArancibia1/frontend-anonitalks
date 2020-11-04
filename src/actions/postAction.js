@@ -26,10 +26,10 @@ export const postsStartLoading = () => {
 //   payload: posts,
 // });
 
-export const sendPost = (title = "", content = "") => {
+export const sendPost = (ctx) => {
   return async (dispatch) => {
     try {
-      const resp = await fetchConToken("posts", { title, content }, "POST");
+      const resp = await fetchConToken("posts", { title: ctx.title, content: ctx.content }, "POST");
       const body = await resp.json();
 
       const { post } = body;
@@ -73,19 +73,17 @@ export const postDelete = (id) => {
   };
 };
 
-export const postUpdate = (title = "", content = "") => {
+export const postUpdate = (ctx) => {
   return async (dispatch, getState) => {
 
-    const id  = getState().posts.post.id;
-    
     try {
-      const resp = await fetchConToken(`posts/${id}`, {title, content}, "PUT");
+      const resp = await fetchConToken(`posts/${ctx.id}`, {title: ctx.title, content: ctx.content, id: ctx.id}, "PUT");
       const body = await resp.json();
 
       const post = {
-        title,
-        content,
-        id
+        title: ctx.title,
+        content: ctx.content,
+        id: ctx.id
       }
 
       if (body.ok) {
