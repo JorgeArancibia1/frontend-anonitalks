@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   sendPost,
   postUpdate,
-} from "../actions/postAction";
+} from "../../redux/actions/postAction";
 
 export const Form = ({
   title,

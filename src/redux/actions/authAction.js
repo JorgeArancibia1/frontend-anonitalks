@@ -1,5 +1,5 @@
 import { types } from '../types/types';
-import { fetchSinToken, fetchConToken } from '../helpers/fetch';
+import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
 import Swal from 'sweetalert2';
 
 export const startLogin = (email, password) => {

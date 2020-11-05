@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { postDelete } from '../../actions/postAction'
-import { openModal } from "../../actions/modalAction";
+import { postDelete } from '../../redux/actions/postAction'
+import { openModal } from "../../redux/actions/modalAction";
 // import { openModal } from "../../actions/auxAction";
 
 export const PostCard = ({user, title, content, id}) => {

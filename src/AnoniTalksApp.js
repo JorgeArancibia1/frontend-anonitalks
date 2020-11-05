@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
-import { AppRouter } from './components/routes/AppRouter';
+import { store } from './redux/store/store';
+import { AppRouter } from './routes/AppRouter';
 import './styles/index.css'
 
 export const AnoniTalksApp = () => {

@@ -1,7 +1,7 @@
-import React from 'react'
-import { startRegister } from '../../actions/authAction';
+import React from 'react';
+import { startRegister } from '../redux/actions/authAction';
 import { useDispatch } from 'react-redux';
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../hooks/useForm';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 

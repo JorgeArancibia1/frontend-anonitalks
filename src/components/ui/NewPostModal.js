@@ -2,8 +2,8 @@ import React from "react";
 import "../../styles/modal.css";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
-import { closeModal } from "../../actions/modalAction";
-import { Form } from "../../helpers/Form";
+import { closeModal } from "../../redux/actions/modalAction";
+import { Form } from "../posts/Form";
 
 Modal.setAppElement("#root");
 

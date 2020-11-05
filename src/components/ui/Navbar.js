@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { startLogout } from '../../actions/authAction';
+import { startLogout } from '../../redux/actions/authAction';
 
 export const Navbar = () => {
 

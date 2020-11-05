@@ -1,4 +1,4 @@
-import { fetchConToken } from "../helpers/fetch";
+import { fetchConToken } from "../../helpers/fetch";
 import { types } from "../types/types";
 import Swal from "sweetalert2";
 import { closeModal } from "./modalAction";

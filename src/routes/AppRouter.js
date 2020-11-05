@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { startChecking } from "../../actions/authAction";
+import { startChecking } from "../redux/actions/authAction";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
 import { routes } from './routes';
