@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/frontend-anonitalks/static/css/main.4bd17040.chunk.css",
-    "main.js": "/frontend-anonitalks/static/js/main.1e014aad.chunk.js",
-    "main.js.map": "/frontend-anonitalks/static/js/main.1e014aad.chunk.js.map",
+    "main.js": "/frontend-anonitalks/static/js/main.f98a8d17.chunk.js",
+    "main.js.map": "/frontend-anonitalks/static/js/main.f98a8d17.chunk.js.map",
     "runtime-main.js": "/frontend-anonitalks/static/js/runtime-main.b6c1f0c1.js",
     "runtime-main.js.map": "/frontend-anonitalks/static/js/runtime-main.b6c1f0c1.js.map",
-    "static/js/2.ef864e25.chunk.js": "/frontend-anonitalks/static/js/2.ef864e25.chunk.js",
-    "static/js/2.ef864e25.chunk.js.map": "/frontend-anonitalks/static/js/2.ef864e25.chunk.js.map",
+    "static/js/2.ab31759b.chunk.js": "/frontend-anonitalks/static/js/2.ab31759b.chunk.js",
+    "static/js/2.ab31759b.chunk.js.map": "/frontend-anonitalks/static/js/2.ab31759b.chunk.js.map",
     "index.html": "/frontend-anonitalks/index.html",
     "static/css/main.4bd17040.chunk.css.map": "/frontend-anonitalks/static/css/main.4bd17040.chunk.css.map",
-    "static/js/2.ef864e25.chunk.js.LICENSE.txt": "/frontend-anonitalks/static/js/2.ef864e25.chunk.js.LICENSE.txt"
+    "static/js/2.ab31759b.chunk.js.LICENSE.txt": "/frontend-anonitalks/static/js/2.ab31759b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b6c1f0c1.js",
-    "static/js/2.ef864e25.chunk.js",
+    "static/js/2.ab31759b.chunk.js",
     "static/css/main.4bd17040.chunk.css",
-    "static/js/main.1e014aad.chunk.js"
+    "static/js/main.f98a8d17.chunk.js"
   ]
 }
