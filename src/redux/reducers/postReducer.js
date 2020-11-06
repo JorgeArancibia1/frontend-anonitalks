@@ -1,8 +1,11 @@
 import { types } from "../types/types";
+// import _ from "lodash"
+import { updateObject } from "../../helpers/updateObject";
 
 const initialState = {
   posts: [],
   post: {
+    id: '',
     title: '',
     content: ''
   },
@@ -23,26 +26,18 @@ export const postReducer = (state = initialState, action) => {
       };
 
     case types.deletePost:
-       const updatedPost = state.posts.filter((post) => post.id !== action.payload)
+      const updatedPost = state.posts.filter((post) => post.id !== action.payload)
       return {
         ...state,
         posts: updatedPost,
       };
 
     case types.updatePost:
-      // const arrayUpdated = updatedArray(array, id)
-      // Encontrar el index y obtienes el objeto
-      // Actualizas el objeto
-      // Reemplazar en el index el nuevo obj en el array
-      // Guardas el array actualizado
-      // lodash
       return {
-        ...state
-        // posts: state.posts.map((p) =>
-        //   p.id === action.payload.id ? action.payload : p
-        // ),
+        ...state,
+        posts: updateObject(state, action.payload)
       };
-
+      
     case types.postId:
       return {
         ...state,

@@ -4,7 +4,6 @@ import { authReducer } from "./authReducer";
 import { postReducer } from './postReducer';
 import { modalReducer } from './modalReducer';
 import { formReducer } from './formReducer';
-import { auxState } from './auxReducer';
 
 
 export const rootReducer = combineReducers({
@@ -13,5 +12,4 @@ export const rootReducer = combineReducers({
   posts: postReducer,
   modal: modalReducer,
   form: formReducer,
-  auxState
 })

@@ -26,14 +26,13 @@ export const postsStartLoading = () => {
 //   payload: posts,
 // });
 
-export const sendPost = (ctx) => {
+export const sendPost = ({title, content}) => {
   return async (dispatch) => {
     try {
-      const resp = await fetchConToken("posts", { title: ctx.title, content: ctx.content }, "POST");
+      const resp = await fetchConToken("posts", { title, content }, "POST");
       const body = await resp.json();
 
       const { post } = body;
-      // console.log(post);
 
       if (body.ok) {
         dispatch({
@@ -55,7 +54,6 @@ export const sendPost = (ctx) => {
 
 export const postDelete = (id) => {
   return async (dispatch) => {
-    // console.log(id);
     try {
       const resp = await fetchConToken(`posts/${id}`, {}, "DELETE");
       const body = await resp.json();
@@ -73,17 +71,17 @@ export const postDelete = (id) => {
   };
 };
 
-export const postUpdate = (ctx) => {
-  return async (dispatch, getState) => {
+export const postUpdate = ({title, content, id}) => {
+  return async (dispatch) => {
 
     try {
-      const resp = await fetchConToken(`posts/${ctx.id}`, {title: ctx.title, content: ctx.content, id: ctx.id}, "PUT");
+      const resp = await fetchConToken(`posts/${id}`, {title, content, id}, "PUT");
       const body = await resp.json();
 
       const post = {
-        title: ctx.title,
-        content: ctx.content,
-        id: ctx.id
+        title,
+        content,
+        id
       }
 
       if (body.ok) {
@@ -94,10 +92,7 @@ export const postUpdate = (ctx) => {
         Swal.fire("Listo!", "Post Actualizado!", "success");
         dispatch(closeModal());
         dispatch(postsStartLoading());
-        cleanPost();
-        //dispatch(updateModal(false));
       } else {
-        Swal.fire("Error", body.msg, "error");
         Swal.fire("Error", body.msg, "error");
       }
     } catch (error) {
@@ -121,4 +116,4 @@ export const setPostId = (id, title, content) => ({
       title: '',
       content:''
     }
-   });
+  });
