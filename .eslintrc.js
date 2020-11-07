@@ -3,7 +3,7 @@ module.exports = {
       es6: true,
       browser: true
     },
-    extends: ['kentcdodds','plugin:react/recommended','prettier', 'prettier/react'],
+    extends: ['airbnb','plugin:react/recommended','prettier', 'prettier/react'],
     plugins: [
       'babel',
       'import',
@@ -34,26 +34,25 @@ module.exports = {
       'no-param-reassign': 'off', 
       'radix': 1, 
       'prefer-destructuring': 'off',
-      "prefer-const": ["error", {
-        "destructuring": "all",
-        "ignoreReadBeforeAssign": false
+      'prefer-const': ['error', {
+        'destructuring': 'all',
+        'ignoreReadBeforeAssign': false
       }],
       'no-useless-concat': 'error',
       'prefer-template': 'error',
-      'quotes': ['error', 'backtick'],
       'no-shadow': 0,
-      "quotes": ["error", "backtick"],
-      "no-shadow": 0,
-      "no-multi-spaces": 2,
-      "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
-      "no-irregular-whitespace": 2,
-      "camelcase": [ 2, { "properties": "always" } ],
-      "no-var": 2,
-      "prefer-arrow-callback": 1,
-      "prefer-spread": 1,
-      "prefer-template": 1,
-      "no-trailing-spaces": [ 2, { "skipBlankLines": true } ],
-      "babel/new-cap": 0,
+      'quotes': ['error', 'single', 'backtick'],
+      'no-shadow': 0,
+      'no-multi-spaces': 2,
+      'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 1 }],
+      'no-irregular-whitespace': 2,
+      'camelcase': [ 2, { 'properties': 'always' } ],
+      'no-var': 2,
+      'prefer-arrow-callback': 1,
+      'prefer-spread': 1,
+      'prefer-template': 1,
+      'no-trailing-spaces': [ 2, { 'skipBlankLines': true } ],
+      'babel/new-cap': 0,
       'prettier/prettier': ['error'],
       //React rules
       'react/require-default-props': 'off', 
@@ -69,5 +68,5 @@ module.exports = {
       //Import rules
       'import/prefer-default-export': 0,
   
-    },
+    }
   };
