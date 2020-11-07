@@ -9,18 +9,13 @@ export const PostCard = ({user, title, content, id}) => {
   
 const dispatch = useDispatch()
 
-// console.log("PostCard");
-
   const openDeletePost = () => {
     dispatch(postDelete(id));
-    // console.log(id);
   }
   
   const HandleOpenModal=()=> {
-    // console.log({type: 'update', content:{id, title, content}})
     dispatch(openModal({type: 'update', content:{id, title, content}}))
   }
-  // dispatch(openAuxModal({type: 'update', content:{id, title, content}}))
   return (
     <div>
       <button onClick={openDeletePost}>Eliminar</button>
