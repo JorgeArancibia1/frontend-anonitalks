@@ -21,7 +21,7 @@ yarn-error.log*
 
 dist/
 public/
-build/
+# build/
 coverage/
 
 .env
