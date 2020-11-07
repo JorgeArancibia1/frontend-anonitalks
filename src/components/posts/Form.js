@@ -24,8 +24,8 @@ export const Form = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleInputChange = (e) => {
-    const target = e.target;
+  const handleInputChange = ({target}) => {
+    // const target = e.target;
 
     _setState({
       ..._state,
@@ -38,6 +38,7 @@ export const Form = ({
     
     if (type === "create") dispatch(sendPost(_state));
     else if (type === "update") dispatch(postUpdate(_state));
+    // eslint-disable-next-line no-useless-return
     return;
   }
 
