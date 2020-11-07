@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/modal.css";
 import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { closeModal } from "../../redux/actions/modalAction";
@@ -19,9 +18,10 @@ export const NewPostModal = () => {
         isOpen={openModal}
         onRequestClose={handleCloseModal}
         closeTimeoutMS={200}
-        className="modal"
+        className="modal text-right"
         overlayClassName="modal-fondo"
       >
+        <button className="close" onClick={handleCloseModal}>X</button> 
         {type === 'create' ? (
           <Form
             title={selectedPost.title}
@@ -36,7 +36,6 @@ export const NewPostModal = () => {
             type="update"
           />
         )}
-        <button onClick={handleCloseModal}>Cerrar modal</button> 
       </Modal>
     </>
   );

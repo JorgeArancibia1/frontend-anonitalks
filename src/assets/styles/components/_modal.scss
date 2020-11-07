@@ -33,12 +33,12 @@
   border-radius: 5px;
   color: rgb(51, 51, 51);
   display: inline;
-  max-height: 620px;
-  height: 40vh;
+  max-height: 680px;
+  height: 50vh;
   width: 60vw;
   max-width: 500px;
   outline: none;
-  padding: 20px 10px;
+  padding: 5px 10px;
 }
 
 .text-content {
@@ -48,23 +48,7 @@
   outline: none;
   text-align: center;
   resize: none;
-  /* min-width: 98%; */
-  /* margin: 0 0; */
 }
-
-/* .textarea {
-  -moz-appearance: textfield-multiline;
-  -webkit-appearance: textarea;
-  border: 1px solid lightgrey;
-  font: medium -moz-fixed;
-  font: -webkit-small-control;
-  height: 28px;
-  overflow: auto;
-  padding: 2px;
-  resize: both;
-  width: 400px;
-  pointer-events: all;
-} */
 
 .container {
   width: 100%;
@@ -81,9 +65,23 @@
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 .inTitle {
   min-height: 8%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   outline: none;
+}
+
+.close {
+  margin: 3px;
+  margin-right: -2px;
+  margin-top: -2px;
 }
