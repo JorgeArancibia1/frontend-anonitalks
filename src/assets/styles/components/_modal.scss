@@ -34,20 +34,29 @@
   color: rgb(51, 51, 51);
   display: inline;
   max-height: 680px;
-  height: 50vh;
+  height: 60vh;
   width: 60vw;
   max-width: 500px;
   outline: none;
   padding: 5px 10px;
 }
 
+.inTitle {
+  min-height: 8%;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+}
+
 .text-content {
-  min-height: 70%;
+  min-height: 60%;
   border: 1px solid lightgrey;
   border-radius: 10px;
   outline: none;
   text-align: center;
   resize: none;
+  max-height: 60%;
 }
 
 .container {
@@ -73,12 +82,7 @@
   text-align: right;
 }
 
-.inTitle {
-  min-height: 8%;
-  border: 1px solid lightgrey;
-  border-radius: 10px;
-  outline: none;
-}
+
 
 .close {
   margin: 3px;

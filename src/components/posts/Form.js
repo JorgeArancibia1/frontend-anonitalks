@@ -62,7 +62,7 @@ export const Form = ({
         value={_state.content}
         onChange={(e) => handleInputChange(e)}
       />
-      <input type="submit" className="mgy center" value={type === "create" ? "Postear" : "Actualizar"} />
+      <input type="submit" className="mgy center pointer" value={type === "create" ? "Postear" : "Actualizar"} />
     </form>
   );
 };

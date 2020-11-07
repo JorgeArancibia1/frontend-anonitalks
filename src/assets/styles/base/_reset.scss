@@ -126,8 +126,11 @@ table {
 	box-sizing: border-box;
 }
 button{
-  border: none;
-  border-radius:0px;
-  outline:none;
-  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 3px;
+	background-color: transparent;
+	cursor: pointer;
+}
+.pointer {
+	cursor: pointer;
 }

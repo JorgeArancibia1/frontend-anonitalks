@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { closeModal } from "../../redux/actions/modalAction";
 import { Form } from "../posts/Form";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 
 Modal.setAppElement("#root");
 
@@ -21,7 +23,10 @@ export const NewPostModal = () => {
         className="modal text-right"
         overlayClassName="modal-fondo"
       >
-        <button className="close" onClick={handleCloseModal}>X</button> 
+        <IconButton aria-label="delete">
+          <CloseIcon onClick={handleCloseModal} fontSize="small"/>
+        </IconButton>
+        {/* <IconButton variant="contained" color="primary" className="close" onClick={handleCloseModal}>X</IconButton  >  */}
         {type === 'create' ? (
           <Form
             title={selectedPost.title}
