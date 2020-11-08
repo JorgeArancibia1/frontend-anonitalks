@@ -3,82 +3,87 @@ import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
 import Swal from 'sweetalert2';
 
 export const startLogin = (email, password) => {
-  //Se recibe como argumento a dispatch gracias a redux-thunk
-  return async(dispatch) => {
+	//Se recibe como argumento a dispatch gracias a redux-thunk
+	return async (dispatch) => {
+		const resp = await fetchSinToken('auth', { email, password }, 'POST');
+		const body = await resp.json();
 
-    const resp = await fetchSinToken('auth', { email, password }, 'POST' )
-    const body = await resp.json();
+		// console.log(body);
 
-    // console.log(body);
+		if (body.ok) {
+			localStorage.setItem('token', body.token);
+			localStorage.setItem('token-init-date', new Date().getTime());
 
-    if ( body.ok ) {
-      localStorage.setItem('token', body.token );
-      localStorage.setItem('token-init-date', new Date().getTime() );
-
-      dispatch( login({
-        uid: body.uid,
-        name: body.name
-      }) )
-    } else {
-      Swal.fire('Error', body.msg, 'error');
-    }
-  }
-}
+			dispatch(
+				login({
+					uid: body.uid,
+					name: body.name,
+				}),
+			);
+		} else {
+			Swal.fire('Error', body.msg, 'error');
+		}
+	};
+};
 
 export const startRegister = (name, email, password) => {
-  return async(dispatch) => {
+	return async (dispatch) => {
+		const resp = await fetchSinToken(
+			'auth/new',
+			{ name, email, password },
+			'POST',
+		);
+		const body = await resp.json();
 
-    const resp = await fetchSinToken('auth/new', { name, email, password }, 'POST' )
-    const body = await resp.json();
+		if (body.ok) {
+			localStorage.setItem('token', body.token);
+			localStorage.setItem('token-init-date', new Date().getTime());
 
-
-    if ( body.ok ) {
-      localStorage.setItem('token', body.token );
-      localStorage.setItem('token-init-date', new Date().getTime() );
-
-      dispatch( login({
-        uid: body.uid,
-        name: body.name
-      }) )
-    } else {
-      Swal.fire('Error', body.msg, 'error');
-    }
-  }
-}
+			dispatch(
+				login({
+					uid: body.uid,
+					name: body.name,
+				}),
+			);
+		} else {
+			Swal.fire('Error', body.msg, 'error');
+		}
+	};
+};
 
 export const startChecking = () => {
-  return async(dispatch) => {
+	return async (dispatch) => {
+		const resp = await fetchConToken('auth/renew');
+		const body = await resp.json();
 
-    const resp = await fetchConToken('auth/renew');
-    const body = await resp.json();
+		if (body.ok) {
+			localStorage.setItem('token', body.token);
+			localStorage.setItem('token-init-date', new Date().getTime());
 
+			dispatch(
+				login({
+					uid: body.uid,
+					name: body.name,
+				}),
+			);
+		} else {
+			dispatch(checkingFinish());
+		}
+	};
+};
 
-    if ( body.ok ) {
-      localStorage.setItem('token', body.token );
-      localStorage.setItem('token-init-date', new Date().getTime() );
+const checkingFinish = () => ({ type: types.authCheckingFinish });
 
-      dispatch( login({
-        uid: body.uid,
-        name: body.name
-      }) )
-    } else {
-      dispatch( checkingFinish() );
-    }
-  }
-}
-
-const checkingFinish = () => ({ type: types.authCheckingFinish});
-
-export const login = ( user ) => ({
-    type: types.authLogin,
-    payload: user
+export const login = (user) => ({
+	type: types.authLogin,
+	payload: user,
 });
 
 export const startLogout = () => {
-  return( dispatch ) => {
-    localStorage.clear();
-    dispatch( logout() );
-  }
-}
+	return (dispatch) => {
+		localStorage.clear();
+		dispatch(logout());
+	};
+};
 
-const logout = () => ({ type: types.authLogout})
+const logout = () => ({ type: types.authLogout });

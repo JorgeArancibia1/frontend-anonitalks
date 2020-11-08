@@ -1,52 +1,51 @@
-import React from "react";
+import React from 'react';
 import { useForm } from '../hooks/useForm';
 import { useDispatch } from 'react-redux';
-import { startLogin } from "../redux/actions/authAction";
-import { Link } from "react-router-dom";
+import { startLogin } from '../redux/actions/authAction';
+import { Link } from 'react-router-dom';
 
 export const LoginScreen = () => {
+	const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+	const [formLoginValues, handleLoginInputChange] = useForm({
+		lemail: 'jorge@gmail.com',
+		lpassword: '123456',
+	});
 
-  const [ formLoginValues, handleLoginInputChange ] = useForm({
-    lemail: "jorge@gmail.com",
-    lpassword: "123456",
-  });
+	const { lemail, lpassword } = formLoginValues;
 
-  const { lemail, lpassword } = formLoginValues;
+	const handleLogin = (e) => {
+		e.preventDefault();
+		dispatch(startLogin(lemail, lpassword));
+	};
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    dispatch( startLogin(lemail, lpassword) );
-  };
+	return (
+		<div>
+			<h1>LoginScreen</h1>
+			<form onSubmit={handleLogin}>
+				<input
+					className=""
+					type="text"
+					placeholder="Email"
+					name="lemail"
+					autoComplete="off"
+					value={lemail}
+					onChange={handleLoginInputChange}
+				/>
 
-  return (
-    <div>
-      <h1>LoginScreen</h1>
-      <form onSubmit={ handleLogin }>
-        <input
-          className=""
-          type="text"
-          placeholder="Email"
-          name="lemail"
-          autoComplete="off"
-          value={ lemail }
-          onChange={ handleLoginInputChange }
-        />
+				<input
+					className=""
+					type="text"
+					placeholder="Password"
+					name="lpassword"
+					autoComplete="off"
+					value={lpassword}
+					onChange={handleLoginInputChange}
+				/>
 
-        <input
-          className=""
-          type="text"
-          placeholder="Password"
-          name="lpassword"
-          autoComplete="off"
-          value={ lpassword }
-          onChange={ handleLoginInputChange }
-        />
-
-        <input type="submit" className="" value="Entrar" />
-        <Link to="/signup">Sign up</Link>
-      </form>
-    </div>
-  );
+				<input type="submit" className="" value="Entrar" />
+				<Link to="/signup">Sign up</Link>
+			</form>
+		</div>
+	);
 };
