@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from '../components/ui/Navbar';
 import { PostCard } from '../components/posts/PostCard';
-import { useDispatch, useSelector } from 'react-redux';
 import { postsStartLoading } from '../redux/actions/postAction';
 import { NewPostModal } from '../components/ui/NewPostModal';
 import { openModal } from '../redux/actions/modalAction';

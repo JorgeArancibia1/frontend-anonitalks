@@ -1,14 +1,12 @@
+import Swal from 'sweetalert2';
 import { types } from '../types/types';
 import { fetchSinToken, fetchConToken } from '../../helpers/fetch';
-import Swal from 'sweetalert2';
 
 export const startLogin = (email, password) => {
-	//Se recibe como argumento a dispatch gracias a redux-thunk
+	// Se recibe como argumento a dispatch gracias a redux-thunk
 	return async (dispatch) => {
 		const resp = await fetchSinToken('auth', { email, password }, 'POST');
 		const body = await resp.json();
-
-		// console.log(body);
 
 		if (body.ok) {
 			localStorage.setItem('token', body.token);

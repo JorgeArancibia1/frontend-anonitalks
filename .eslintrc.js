@@ -26,6 +26,10 @@ module.exports = {
 		'function-paren-newline': 'off',
 		'no-plusplus': 1,
 		'space-before-function-paren': 0,
+		'no-use-before-define': ['error', { variables: false }],
+		'react/button-has-type': 0,
+		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+		'react/jsx-props-no-spreading': 'off',
 		'max-len': [
 			'error',
 			80,

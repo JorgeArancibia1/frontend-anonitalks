@@ -1,9 +1,9 @@
 import React from 'react';
-import { startRegister } from '../redux/actions/authAction';
 import { useDispatch } from 'react-redux';
-import { useForm } from '../hooks/useForm';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { useForm } from '../hooks/useForm';
+import { startRegister } from '../redux/actions/authAction';
 
 export const RegisterScreen = () => {
 	const dispatch = useDispatch();
