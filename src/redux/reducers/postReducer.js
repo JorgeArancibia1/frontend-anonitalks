@@ -1,5 +1,4 @@
 import { types } from '../types/types';
-// import _ from "lodash"
 import { updateObject } from '../../helpers/updateObject';
 
 const initialState = {
@@ -26,9 +25,9 @@ export const postReducer = (state = initialState, action) => {
 			};
 
 		case types.deletePost:
-			const updatedPost = state.posts.filter(
-				(post) => post.id !== action.payload,
-			);
+			const updatedPost = state.posts.filter((post) => {
+				post.id !== action.payload;
+			});
 			return {
 				...state,
 				posts: updatedPost,

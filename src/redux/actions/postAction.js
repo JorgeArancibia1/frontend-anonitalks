@@ -1,6 +1,6 @@
+import Swal from 'sweetalert2';
 import { fetchConToken } from '../../helpers/fetch';
 import { types } from '../types/types';
-import Swal from 'sweetalert2';
 import { closeModal } from './modalAction';
 
 export const postsStartLoading = () => {
@@ -9,14 +9,14 @@ export const postsStartLoading = () => {
 			const resp = await fetchConToken('posts');
 			const body = await resp.json();
 
-			const posts = body.posts;
+			const { posts } = body;
 
 			return dispatch({
 				type: types.postsLoaded,
 				payload: posts,
 			});
 		} catch (error) {
-			console.log(error);
+			Swal.fire('Error', error, 'error');
 		}
 	};
 };
@@ -47,7 +47,7 @@ export const sendPost = ({ title, content }) => {
 				Swal.fire('Error', body.errors.content.msg, 'error');
 			}
 		} catch (error) {
-			console.log(error);
+			Swal.fire('Error', error, 'error');
 		}
 	};
 };
@@ -66,7 +66,7 @@ export const postDelete = (id) => {
 				Swal.fire('Error', body.msg, 'error');
 			}
 		} catch (error) {
-			console.log(error);
+			Swal.fire('Error', error, 'error');
 		}
 	};
 };
@@ -99,7 +99,7 @@ export const postUpdate = ({ title, content, id }) => {
 				Swal.fire('Error', body.msg, 'error');
 			}
 		} catch (error) {
-			console.log(error);
+			Swal.fire('Error', error, 'error');
 		}
 	};
 };
