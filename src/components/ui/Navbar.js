@@ -11,15 +11,14 @@ export const Navbar = () => {
 
 	return (
 		<div className="container-nav">
-			<li className="nav-list">
+			<li className="nav-list pt-2">
 				<ul>Home</ul>
 				<ul>Chat</ul>
 				<ul>Sobre la página</ul>
-				<ul>Otros</ul>
+				<button className="button-out" type="button" onClick={handleLogout}>
+					Logout
+				</button>
 			</li>
-			<button type="button" onClick={handleLogout}>
-				Logout
-			</button>
 		</div>
 	);
 };

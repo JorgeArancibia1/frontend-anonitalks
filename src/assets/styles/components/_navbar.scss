@@ -1,8 +1,8 @@
 .container-nav {
 	// border: 1px solid red;
-  display: flex;
+	display: flex;
 	justify-content: flex-end;
-  width: 100%;
+	width: 100%;
 }
 
 .nav-list {
@@ -10,11 +10,18 @@
 	color: $suport-darkgrey-color;
 	display: flex;
 	justify-content: center;
-	width: 40%;
+  width: 40%;
 }
 
-ul{
-  margin-right: 30px;
-  font-family: 'Ranga';
+ul {
+	margin-right: 30px;
+	font-family: 'Ranga';
+	font-size: 1.5em;
+}
+
+.button-out {
+  color: $suport-darkgrey-color;
   font-size: 1.5em;
+  font-family: 'Ranga', 'coursive';
+  margin-top: -7px;
 }
