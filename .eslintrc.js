@@ -28,7 +28,7 @@ module.exports = {
 		'space-before-function-paren': 0,
 		'no-use-before-define': ['error', { variables: false }],
 		indent: [0, 2, { SwitchCase: 1 }],
-		treatUndefinedAsUnspecified: 1,
+		treatUndefinedAsUnspecified: 0,
 		'no-case-declarations': 0,
 		'react/button-has-type': 0,
 		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
