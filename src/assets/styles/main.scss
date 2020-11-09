@@ -4,6 +4,7 @@
 @import './lib/colors';
 @import './lib/variables';
 @import './base/fonts';
+@import './base/general';
 
 // Mixins
 
@@ -15,6 +16,7 @@
 //Views
 
 @import './views/home';
-
+@import './views/login';
+@import './components/navbar';
 
 

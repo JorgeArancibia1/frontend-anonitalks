@@ -10,8 +10,13 @@ export const Navbar = () => {
 	};
 
 	return (
-		<div>
-			<h1>Navbar</h1>
+		<div className="container-nav">
+			<li className="nav-list">
+				<ul>1</ul>
+				<ul>1</ul>
+				<ul>1</ul>
+				<ul>1</ul>
+			</li>
 			<button type="button" onClick={handleLogout}>
 				Logout
 			</button>

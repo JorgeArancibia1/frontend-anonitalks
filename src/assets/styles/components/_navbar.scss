@@ -1,0 +1,14 @@
+.container-nav {
+	border: 1px solid red;
+  display: flex;
+	justify-content: flex-end;
+  width: 100%;
+}
+
+.nav-list {
+	border: 1px solid red;
+	color: $suport-darkgrey-color;
+	display: flex;
+	justify-content: center;
+	width: 10%;
+}

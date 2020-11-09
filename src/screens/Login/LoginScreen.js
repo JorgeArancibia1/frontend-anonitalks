@@ -20,32 +20,41 @@ export const LoginScreen = () => {
 	};
 
 	return (
-		<div>
-			<h1>LoginScreen</h1>
-			<form onSubmit={handleLogin}>
-				<input
-					className=""
-					type="text"
-					placeholder="Email"
-					name="lemail"
-					autoComplete="off"
-					value={lemail}
-					onChange={handleLoginInputChange}
+		<div className="container-home">
+			<div className="container-title-form">
+				<img
+					className="title-anonitalks"
+					src="https://res.cloudinary.com/initial-cloud/image/upload/c_scale,h_48,w_225/v1604950450/anonitalks_ro0daj.jpg"
+					alt=""
 				/>
-
-				<input
-					className=""
-					type="text"
-					placeholder="Password"
-					name="lpassword"
-					autoComplete="off"
-					value={lpassword}
-					onChange={handleLoginInputChange}
-				/>
-
-				<input type="submit" className="" value="Entrar" />
-				<Link to="/signup">Sign up</Link>
-			</form>
+				<form className="form-home" onSubmit={handleLogin}>
+					<h2 className="title-login">Login</h2>
+					<br />
+					<input
+						className="input-name"
+						type="text"
+						placeholder="Email"
+						name="lemail"
+						autoComplete="off"
+						value={lemail}
+						onChange={handleLoginInputChange}
+					/>
+					<br />
+					<input
+						className="input-password"
+						type="password"
+						placeholder="Password"
+						name="lpassword"
+						autoComplete="off"
+						value={lpassword}
+						onChange={handleLoginInputChange}
+					/>
+					<br />
+					<input className="login-button" type="submit" value="Entrar" />
+					<br />
+					<Link to="/signup">Sign up</Link>
+				</form>
+			</div>
 		</div>
 	);
 };

@@ -28,52 +28,61 @@ export const RegisterScreen = () => {
 	};
 
 	return (
-		<div>
-			<h1>Register</h1>
-			<form onSubmit={handleRegister}>
-				<input
-					type="text"
-					placeholder="Name"
-					name="rname"
-					className=""
-					autoComplete="off"
-					value={rname}
-					onChange={handleRegisterInputChange}
+		<div className="container-home">
+			<div className="container-title-form">
+				<img
+					className="title-anonitalks"
+					src="https://res.cloudinary.com/initial-cloud/image/upload/c_scale,h_48,w_225/v1604950450/anonitalks_ro0daj.jpg"
+					alt=""
 				/>
+				<form className="form-home" onSubmit={handleRegister}>
+					<h2 className="title-login">Register</h2>
+					<input
+						type="text"
+						placeholder="Name"
+						name="rname"
+						className=""
+						autoComplete="off"
+						value={rname}
+						onChange={handleRegisterInputChange}
+					/>
 
-				<input
-					type="text"
-					placeholder="Email"
-					name="remail"
-					className=""
-					autoComplete="off"
-					value={remail}
-					onChange={handleRegisterInputChange}
-				/>
+					<input
+						type="text"
+						placeholder="Email"
+						name="remail"
+						className=""
+						autoComplete="off"
+						value={remail}
+						onChange={handleRegisterInputChange}
+					/>
 
-				<input
-					type="text"
-					placeholder="Password"
-					name="rpassword1"
-					className=""
-					autoComplete="off"
-					value={rpassword1}
-					onChange={handleRegisterInputChange}
-				/>
+					<input
+						type="password"
+						placeholder="Password"
+						name="rpassword1"
+						className=""
+						autoComplete="off"
+						value={rpassword1}
+						onChange={handleRegisterInputChange}
+					/>
 
-				<input
-					type="text"
-					placeholder="Confirm password"
-					name="rpassword2"
-					className=""
-					autoComplete="off"
-					value={rpassword2}
-					onChange={handleRegisterInputChange}
-				/>
+					<input
+						type="password"
+						placeholder="Confirm password"
+						name="rpassword2"
+						className=""
+						autoComplete="off"
+						value={rpassword2}
+						onChange={handleRegisterInputChange}
+					/>
 
-				<input type="submit" className="" value="Register" />
-			</form>
-			<Link to="/login">Login</Link>
+					<input type="submit" className="login-button" value="Register" />
+					<Link className="mt-2" to="/login">
+						Back to Login
+					</Link>
+				</form>
+			</div>
 		</div>
 	);
 };

@@ -134,3 +134,16 @@ button{
 .pointer {
 	cursor: pointer;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+a{
+	text-decoration: none;
+}
+input{
+	margin: 5px;
+	border-radius: 3px;
+	outline: 0;
+  border: 1px solid #39c;
+}

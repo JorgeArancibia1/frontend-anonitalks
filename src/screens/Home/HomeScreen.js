@@ -19,8 +19,14 @@ export const HomeScreen = () => {
 
 	return (
 		<div>
-			<h1>HomeScreen</h1>
-			<Navbar />
+			<header>
+				<img
+					className="title-anonitalks-home"
+					src="https://res.cloudinary.com/initial-cloud/image/upload/c_scale,h_48,w_225/v1604950450/anonitalks_ro0daj.jpg"
+					alt=""
+				/>
+				<Navbar />
+			</header>
 			<hr />
 			<button onClick={() => handleOpenModal()}>Agregar post</button>
 			<center>
