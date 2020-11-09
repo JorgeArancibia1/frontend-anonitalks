@@ -1,6 +1,6 @@
-import { LoginScreen } from '../screens/LoginScreen';
-import { HomeScreen } from '../screens/HomeScreen';
-import { RegisterScreen } from '../screens/RegisterScreen';
+import { LoginScreen } from '../screens/Login/LoginScreen';
+import { HomeScreen } from '../screens/Home/HomeScreen';
+import { RegisterScreen } from '../screens/Login/RegisterScreen';
 
 export const routes = [
 	{

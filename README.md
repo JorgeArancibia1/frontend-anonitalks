@@ -1,3 +1,3 @@
 ## Para ver el avance del proyecto, visita:
 
-### [https://jorgearancibia1.github.io/frontend-anonitalks/]
+### https://jorgearancibia1.github.io/frontend-anonitalks/

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navbar } from '../components/ui/Navbar';
-import { PostCard } from '../components/posts/PostCard';
-import { postsStartLoading } from '../redux/actions/postAction';
-import { NewPostModal } from '../components/ui/NewPostModal';
-import { openModal } from '../redux/actions/modalAction';
+import { Navbar } from '../../components/ui/Navbar';
+import { PostCard } from '../../components/posts/PostCard';
+import { postsStartLoading } from '../../redux/actions/postAction';
+import { NewPostModal } from '../../components/ui/NewPostModal';
+import { openModal } from '../../redux/actions/modalAction';
 
 export const HomeScreen = () => {
 	const dispatch = useDispatch();
