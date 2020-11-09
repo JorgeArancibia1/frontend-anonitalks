@@ -27,7 +27,7 @@ module.exports = {
 		'no-plusplus': 1,
 		'space-before-function-paren': 0,
 		// eslint-disable-next-line prettier/prettier
-		'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
+		'consistent-return': [0, { treatUndefinedAsUnspecified: false }],
 		'array-callback-return': [0, { allowImplicit: true }],
 		'no-unused-expressions': [0, { allowTaggedTemplates: true }],
 		'no-use-before-define': ['error', { variables: false }],
