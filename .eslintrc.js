@@ -26,9 +26,12 @@ module.exports = {
 		'function-paren-newline': 'off',
 		'no-plusplus': 1,
 		'space-before-function-paren': 0,
+		// eslint-disable-next-line prettier/prettier
+		'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
+		'array-callback-return': [0, { allowImplicit: true }],
+		'no-unused-expressions': [0, { allowTaggedTemplates: true }],
 		'no-use-before-define': ['error', { variables: false }],
 		indent: [0, 2, { SwitchCase: 1 }],
-		treatUndefinedAsUnspecified: 0,
 		'no-case-declarations': 0,
 		'react/button-has-type': 0,
 		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
@@ -64,7 +67,7 @@ module.exports = {
 		'prefer-template': 1,
 		'no-trailing-spaces': [2, { skipBlankLines: true }],
 		'babel/new-cap': 0,
-		'prettier/prettier': ['error'],
+		'prettier/prettier': 0,
 		// React rules
 		'react/require-default-props': 'off',
 		'react/forbid-prop-types': 0,
