@@ -12,10 +12,10 @@ export const Navbar = () => {
 	return (
 		<div className="container-nav">
 			<li className="nav-list">
-				<ul>1</ul>
-				<ul>1</ul>
-				<ul>1</ul>
-				<ul>1</ul>
+				<ul>Home</ul>
+				<ul>Chat</ul>
+				<ul>Sobre la página</ul>
+				<ul>Otros</ul>
 			</li>
 			<button type="button" onClick={handleLogout}>
 				Logout
