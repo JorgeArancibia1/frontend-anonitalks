@@ -28,7 +28,9 @@ export const HomeScreen = () => {
 				<Navbar />
 			</header>
 			<hr />
-			<button onClick={() => handleOpenModal()}>Agregar post</button>
+			<button className="standard-button m-4" onClick={() => handleOpenModal()}>
+				Agregar post
+			</button>
 			<center>
 				{posts.map((post) => (
 					<PostCard key={post.id} {...post} user={post.user.name} />

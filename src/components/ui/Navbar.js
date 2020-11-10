@@ -15,7 +15,7 @@ export const Navbar = () => {
 				<ul>Home</ul>
 				<ul>Chat</ul>
 				<ul>Sobre la página</ul>
-				<button className="button-out" type="button" onClick={handleLogout}>
+				<button className="buttonout" type="button" onClick={handleLogout}>
 					Logout
 				</button>
 			</li>

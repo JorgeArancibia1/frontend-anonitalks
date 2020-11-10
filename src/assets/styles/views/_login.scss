@@ -1,5 +1,7 @@
 body{
 	background-color: #151517;
+	font-family: 'Ranga';
+	color: $suport-darkgrey-color;
 }
 .container-home {
 	height: 100vh;
@@ -44,7 +46,9 @@ body{
 .login-button {
   background-color: $principal-color;
   border: 1px solid $principal-color;
-  padding: 5px 10px;
+	padding: 5px 10px;
+	cursor: pointer;
+	
 }
 
 a {

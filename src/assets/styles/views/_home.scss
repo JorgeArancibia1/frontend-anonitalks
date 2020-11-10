@@ -4,3 +4,10 @@ header{
   align-items: center;
   padding: $font-size-xs;
 }
+
+.standard-button{
+  color: $suport-darkgrey-color;
+  border: 1px solid $suport-darkgrey-color;
+  font-size: 1.5em;
+  padding: 5px 10px;
+}

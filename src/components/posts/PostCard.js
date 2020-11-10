@@ -15,16 +15,30 @@ export const PostCard = ({ user, title, content, id }) => {
 		dispatch(openModal({ type: 'update', content: { id, title, content } }));
 	};
 	return (
-		<div>
-			<button type="button" onClick={openDeletePost}>
-				Eliminar
-			</button>
-			<button type="button" onClick={HandleOpenModal}>
-				Actualizar
-			</button>
-			<h3>{user}</h3>
-			<span>{title}</span>
-			<p>{content}</p>
+		<div className="container-card mb-1">
+			<div className="header-card">
+				<h3 className="user mb-3">@{user}</h3>
+				<span className="title">{title}</span>
+			</div>
+			<div className="content-container mb-3">
+				<p className="content mt-4">{content}</p>
+			</div>
+			<div className="container-buttons">
+				<button
+					className="standard-button"
+					type="button"
+					onClick={openDeletePost}
+				>
+					Eliminar
+				</button>
+				<button
+					className="standard-button"
+					type="button"
+					onClick={HandleOpenModal}
+				>
+					Actualizar
+				</button>
+			</div>
 		</div>
 	);
 };
