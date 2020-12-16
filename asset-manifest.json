@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/frontend-anonitalks/static/css/main.4d19fb82.chunk.css",
-    "main.js": "/frontend-anonitalks/static/js/main.bf45b1cd.chunk.js",
-    "main.js.map": "/frontend-anonitalks/static/js/main.bf45b1cd.chunk.js.map",
+    "main.css": "/frontend-anonitalks/static/css/main.db7a93c6.chunk.css",
+    "main.js": "/frontend-anonitalks/static/js/main.3b81b668.chunk.js",
+    "main.js.map": "/frontend-anonitalks/static/js/main.3b81b668.chunk.js.map",
     "runtime-main.js": "/frontend-anonitalks/static/js/runtime-main.b6c1f0c1.js",
     "runtime-main.js.map": "/frontend-anonitalks/static/js/runtime-main.b6c1f0c1.js.map",
-    "static/js/2.0903109f.chunk.js": "/frontend-anonitalks/static/js/2.0903109f.chunk.js",
-    "static/js/2.0903109f.chunk.js.map": "/frontend-anonitalks/static/js/2.0903109f.chunk.js.map",
+    "static/js/2.89afa95c.chunk.js": "/frontend-anonitalks/static/js/2.89afa95c.chunk.js",
+    "static/js/2.89afa95c.chunk.js.map": "/frontend-anonitalks/static/js/2.89afa95c.chunk.js.map",
     "index.html": "/frontend-anonitalks/index.html",
-    "static/css/main.4d19fb82.chunk.css.map": "/frontend-anonitalks/static/css/main.4d19fb82.chunk.css.map",
-    "static/js/2.0903109f.chunk.js.LICENSE.txt": "/frontend-anonitalks/static/js/2.0903109f.chunk.js.LICENSE.txt",
+    "static/css/main.db7a93c6.chunk.css.map": "/frontend-anonitalks/static/css/main.db7a93c6.chunk.css.map",
+    "static/js/2.89afa95c.chunk.js.LICENSE.txt": "/frontend-anonitalks/static/js/2.89afa95c.chunk.js.LICENSE.txt",
     "static/media/main.scss": "/frontend-anonitalks/static/media/Ranga-Bold.350245d2.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.b6c1f0c1.js",
-    "static/js/2.0903109f.chunk.js",
-    "static/css/main.4d19fb82.chunk.css",
-    "static/js/main.bf45b1cd.chunk.js"
+    "static/js/2.89afa95c.chunk.js",
+    "static/css/main.db7a93c6.chunk.css",
+    "static/js/main.3b81b668.chunk.js"
   ]
 }
