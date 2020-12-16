@@ -1,27 +1,21 @@
 .container-nav {
-	// border: 1px solid red;
 	display: flex;
 	justify-content: flex-end;
-	width: 100%;
+	width: 100vw;
 }
 
 .nav-list {
-	// border: 1px solid red;
 	color: $suport-darkgrey-color;
-	display: flex;
-	justify-content: center;
-  width: 40%;
 }
 
 ul {
-	margin-right: 30px;
 	font-family: 'Ranga';
-	font-size: 1.5em;
+	font-size: $font-size-m;
 }
 
 .buttonout {
   color: $suport-darkgrey-color;
-  font-size: 1.5em;
+  font-size: $font-size-m;
   font-family: 'Ranga', 'coursive';
   margin-top: -7px;
 }

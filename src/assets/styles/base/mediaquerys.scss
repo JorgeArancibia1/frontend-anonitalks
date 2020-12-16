@@ -1,0 +1,53 @@
+/* De aquí en adelante */
+@media only screen and (max-width: 320px) {
+  .user {
+    font-size: $font-size-s;
+  }
+  .standard-button {
+    font-size: $font-size-xs;
+    padding: $padding-xxxs $padding-xxs;
+  }
+}
+@media only screen and (max-width: 489px) {
+  .user {
+    font-size: $font-size-s;
+  }
+  .nav-list {
+    display: none;
+  }
+  .standard-button {
+		font-size: $font-size-xs;
+  }
+}
+@media only screen and (max-width: 520px) {
+	.user {
+    font-size: $font-size-m;
+  }
+}
+@media only screen and (max-width: 720px) {
+	.user {
+    font-size: $font-size-m;
+  }
+}
+@media only screen and (max-width: 1024px) {
+	.user {
+    font-size: $font-size-l;
+  }
+}
+@media only screen and (max-width: 320px) {
+	.user {
+    font-size: $font-size-l;
+  }
+}
+
+
+
+
+/* Large screens ----------- */
+@media only screen and (max-width: 1824px) {
+	/* Styles */
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2) {
+	
+}

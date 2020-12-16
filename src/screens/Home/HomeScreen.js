@@ -23,7 +23,7 @@ export const HomeScreen = () => {
 				<img
 					className="title-anonitalks-home"
 					src="https://res.cloudinary.com/initial-cloud/image/upload/c_scale,h_48,w_225/v1604950450/anonitalks_ro0daj.jpg"
-					alt=""
+					alt="logo"
 				/>
 				<Navbar />
 			</header>

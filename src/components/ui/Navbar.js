@@ -12,17 +12,23 @@ export const Navbar = () => {
 
 	return (
 		<div className="container-nav">
-			<li className="nav-list pt-2">
-				<ul><Link to="/"> Home </Link></ul>
-				<ul><strike> Chat </strike></ul>
-				<ul className="min-about">
-					<Link to="/about">
-						Sobre la página
-					</Link>
+			<li className="nav-list pt-2 container-flex-center-end">
+				<ul className="mr-3">
+					<Link to="/"> Home </Link>
 				</ul>
-				<button className="buttonout" type="button" onClick={handleLogout}>
-					Logout
-				</button>
+				<ul className="mr-3">
+					<strike> Chat </strike>
+				</ul>
+				<ul className="min-about">
+					<Link to="/about">Sobre la página</Link>
+					<button
+						className="buttonout ml-3"
+						type="button"
+						onClick={handleLogout}
+					>
+						Logout
+					</button>
+				</ul>
 			</li>
 		</div>
 	);

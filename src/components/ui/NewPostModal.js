@@ -25,7 +25,7 @@ export const NewPostModal = () => {
 				overlayClassName="modal-fondo"
 			>
 				<IconButton aria-label="delete" onClick={handleCloseModal}>
-					<CloseIcon fontSize="small" />
+					<CloseIcon fontSize="small" className="close" />
 				</IconButton>
 				{type === 'create' ? (
 					<Form

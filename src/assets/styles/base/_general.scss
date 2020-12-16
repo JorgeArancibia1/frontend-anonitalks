@@ -250,6 +250,12 @@
 	align-items: center;
 }
 
+.container-flex-center-end {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
 .flex-d-c {
 	flex-direction: column;
 }
@@ -257,3 +263,8 @@
 .c-70w {
 	width: 70%;
 }
+
+.center {
+  text-align: center;
+}
+

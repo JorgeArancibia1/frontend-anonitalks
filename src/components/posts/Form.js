@@ -52,11 +52,13 @@ export const Form = ({ title, content, id = '', type }) => {
 				value={_state.content}
 				onChange={(e) => handleInputChange(e)}
 			/>
-			<input
-				type="submit"
-				className="mgy center pointer"
-				value={type === 'create' ? 'Postear' : 'Actualizar'}
-			/>
+			<div className="container-flex-center container-button">
+				<input
+					type="submit"
+					className="mgy center pointer"
+					value={type === 'create' ? 'Postear' : 'Actualizar'}
+				/>
+			</div>
 		</form>
 	);
 };

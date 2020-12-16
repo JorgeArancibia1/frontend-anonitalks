@@ -25,14 +25,14 @@ export const PostCard = ({ user, title, content, id }) => {
 			</div>
 			<div className="container-buttons">
 				<button
-					className="standard-button"
+					className="standard-button mr-3"
 					type="button"
 					onClick={openDeletePost}
 				>
 					Eliminar
 				</button>
 				<button
-					className="standard-button"
+					className="standard-button ml-3"
 					type="button"
 					onClick={HandleOpenModal}
 				>
